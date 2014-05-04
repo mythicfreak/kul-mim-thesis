@@ -1,0 +1,130 @@
+\documentclass[11pt,a4paper]{book}
+\usepackage{amsmath}
+\usepackage[dutch]{babel}
+\usepackage{graphicx}
+\usepackage{picture}
+\usepackage{color}
+\usepackage{graphpap,color}
+\usepackage{subfig}
+\usepackage[percent]{overpic}
+
+\usepackage[dutch]{babel}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{makeidx}
+\usepackage{pdflscape}
+%\usepackage{booktabs}
+%\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\definecolor{kuleuven}{RGB}{29,141,176}
+\definecolor{kuleuven1}{RGB}{82,189,236}
+\usepackage{geometry}
+
+\newcommand{\nocontentsline}[3]{}
+\newcommand{\tocless}[2]{\bgroup\let\addcontentsline=\nocontentsline#1{#2}\egroup}
+
+
+
+\makeindex
+\begin{document}
+\renewcommand*\chaptername{Hoofdstuk}
+\renewcommand*\bibname{Bibliografie}
+\renewcommand*\appendixname{Bijlagen}
+
+\frontmatter
+\newgeometry{textwidth=540pt,textheight=780pt,top=20pt,left=20pt,right=20pt}
+\begin{titlepage}
+
+\begin{figure}[tc]{%
+      \begin{overpic}[width=1\textwidth,natwidth=50,natheight=0]{img/Picture1.png}
+        \put(35,4){\color{white}{\textbf{FACULTEIT ECONOMIE EN BEDRIJFSWETENSCHAPPEN}}}
+      \end{overpic}
+    }
+\end{figure}
+
+\vspace*{4.5cm}
+{\color{kuleuven1}{\Huge Identification of important contributions in diagnostic medical imaging}}
+
+\vspace*{0.5cm}
+{\Large Identificatie van belangrijke contributies in diagnostische medische beeldvorming}
+
+\begin{figure}[bl]
+  %\centering
+   \begin{minipage}[c]{0.4\textwidth}  {%
+      \begin{overpic}[width=0.9\textwidth,natwidth=300,natheight=370]{img/Picture2.png}
+        \put(70,45){\begin{minipage}[c]{1.80\textwidth}
+\begin{flushright}
+
+{\Large Ir. Sven Van Hove} \linebreak
+{s0190440} \linebreak
+   
+\textbf{{\large Masterproef aangeboden tot  \linebreak
+het behalen van de graad}} \linebreak
+\linebreak
+{\large \textsc{Master in het Management}}\linebreak
+{\large }\linebreak
+\linebreak
+\textbf{{\large Promotor:}}  Prof. Dr. R. Veugelers \linebreak
+\textbf{{\large Werkleider:}} D. Verhoeven
+\linebreak
+
+\textbf{{\large Academiejaar}} {\large 2013-2014}
+\linebreak
+\end{flushright}
+  \end{minipage}}
+      \end{overpic}
+    }
+  \end{minipage}
+  
+  
+\begin{picture}(540,0.2)
+\put(0,0){\colorbox{kuleuven1}{\makebox(540,0.2){}}}
+\end{picture}
+\end{figure}
+
+\end{titlepage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\restoregeometry
+\setcounter{equation}{1}
+
+\pagestyle{empty}
+
+\renewcommand*\contentsname{Inhoud}
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{sections/00_abstract.tex} %TODO dankwoord?
+\mainmatter
+\pagestyle{headings}
+
+\input{sections/10_inleiding.tex}
+
+%Beschrijving van uitvindingen
+
+%Score per uitvinding
+
+%Resultaten
+
+\input{sections/80_conclusie.tex}
+
+\clearpage %clearbothpages?
+\bibliographystyle{alpha} %plain,unsrt,alpha,abbrv,acm,apalike,siam,ieeetr,..
+\bibliography{references} \addcontentsline{toc}{chapter}{Bibliografie}
+
+\vfill
+
+\input{sections/90_appendix.tex}
+
+\newpage
+\thispagestyle{empty}
+\newgeometry{textwidth=540pt,textheight=780pt,top=20pt,left=20pt,right=20pt}
+\begin{figure}[ht]
+\begin{flushright}
+\includegraphics[width=0.5\textwidth,natwidth=310,natheight=10]{img/Picture3.png}	
+\end{flushright}
+\end{figure}
+\vfill
+\begin{picture}(550,40)
+\put(0,0){\colorbox{kuleuven}{\makebox(520,52){}}}
+\end{picture}
+\end{document}
