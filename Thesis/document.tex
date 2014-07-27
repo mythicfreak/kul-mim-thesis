@@ -1,6 +1,6 @@
 \documentclass[11pt,a4paper]{book}
 \usepackage{amsmath}
-\usepackage[dutch]{babel}
+\usepackage[english]{babel}
 \usepackage{graphicx}
 \usepackage{picture}
 \usepackage{color}
@@ -8,7 +8,7 @@
 \usepackage{subfig}
 \usepackage[percent]{overpic}
 
-\usepackage[dutch]{babel}
+\usepackage[english]{babel}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{makeidx}
@@ -26,9 +26,9 @@
 
 \makeindex
 \begin{document}
-\renewcommand*\chaptername{Hoofdstuk}
-\renewcommand*\bibname{Bibliografie}
-\renewcommand*\appendixname{Bijlagen}
+%\renewcommand*\chaptername{Hoofdstuk}
+%\renewcommand*\bibname{Bibliografie}
+%\renewcommand*\appendixname{Bijlagen}
 
 \frontmatter
 \newgeometry{textwidth=540pt,textheight=780pt,top=20pt,left=20pt,right=20pt}
@@ -93,19 +93,26 @@ het behalen van de graad}} \linebreak
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\setlength{\parindent}{0cm} % Default is 15pt.
+\setlength{\parskip}{2ex plus 4mm minus 3mm}
+
+
 \input{sections/00_abstract.tex} %TODO dankwoord?
 \mainmatter
 \pagestyle{headings}
 
-\input{sections/10_inleiding.tex}
+\input{sections/10_intro.tex}
 
+\input{sections/20_intro_imaging.tex}
+
+\input{sections/30_inventions.tex}
 %Beschrijving van uitvindingen
 
 %Score per uitvinding
 
 %Resultaten
 
-\input{sections/80_conclusie.tex}
+\input{sections/80_conclusion.tex}
 
 \clearpage %clearbothpages?
 \bibliographystyle{alpha} %plain,unsrt,alpha,abbrv,acm,apalike,siam,ieeetr,..
