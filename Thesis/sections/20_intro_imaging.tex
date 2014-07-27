@@ -1,0 +1,75 @@
+\chapter{Introduction to diagnostic medical imaging}
+
+\section{Introduction}
+In this chapter, we provide an overview of diagnostic medical imaging and its
+history. Medical imaging is a field in medicine concerned with creating visual
+representations of a body for the purpose of clinical analysis. Although medical
+imaging is sometimes used for non-diagnostic purposes, we will only concern
+ourselves with diagnostic medical imaging. This subbranch has the goal to
+facilitate diagnosis of medical conditions without the need for invasive
+procedures.
+
+In the next sections, we will discuss the history of the field, followed by an
+introduction to the most important modalities such as CT and MRI scanners.
+
+\section{History of radiography and X-rays}
+Most of the topics covered in this chapter build on the work of Wilhelm Konrad
+R\"ontgen, a German physicist who produced and detected X-rays for the first
+time on November 8 1895. These X-rays (X for unknown) had the remarkable
+property of being attenuated at different rates when passing through various
+materials. For example, bone strongly attenuates the X-rays while soft tissue
+does much less so. R\"ontgen also discovered that the radiation can be captured
+on a photographic plate, just like regular light. He presented his findings in
+his paper ``On a new kind or rays'' \cite{rontgen}. This discovery earned him
+the Nobel Prize in Physics in 1901.
+
+Only two weeks after his discovery, he produced the first X-ray photo of his
+wife's hand, showing the inner skeleton. Just a couple of months later, X-rays
+were already being used in a clinical setting on patients.
+
+\section{Physical background}
+To better understand the internal workings of imaging devices, we present a
+simplified mathematical and physical background based on the book of prof.
+Suetens\cite{suetens}. X-rays are simply a form of electromagnetic waves
+consisting of photons with a wavelength $\lambda$ on the order of Angstr\o ms
+($10^{-10}$m). The corresponding frequency $f$ places these rays firmly in the
+ionizing (radioactive) part of the spectrum. The energy of such a wave can be
+calculated with the following formula, where $c$ is the speed of light and $h$
+is Planck's constant.
+
+\begin{equation}
+	E = hf = \frac{hc}{\lambda}.
+\end{equation}
+
+X-rays are generated in an X-ray tube, a vacuum tube consisting of a cathode and
+an anode Current flowing through the cathode releases electrons,
+which are accelerated toward the anode by an applied voltage. Once the electrons
+hit the anode, they release part of their energy in the form of X-ray photons.
+
+The attenuation of X-rays through materials can easily be modeled using an
+attenuation coefficient $\mu$. The beam intensity when passed through a
+homogeneous material of depth $d$ is given by: 
+
+\begin{equation}
+	I_{out} = I_{in} e^{-\mu d}.
+\end{equation}
+
+To capture X-rays, a detector is needed. Traditionally, a screen-film detector
+was used. (However, recent advancements allow more performant and completely
+digital detectors.) The familiar photographic film alone is very inefficient
+at capturing X-rays: only about 2\% of all photons are absorped. Because X-rays
+are radioactive, the applied dose cannot simply be increased to improve the
+image quality. Instead, an intensifier screen is used in front of the film. This
+screen contains heavy chemical elements, whose electrons are excited by the
+incoming photons. When returning to their original state, these electrons emit
+more photons that can be captured by the film, raising the absorption efficiency
+to about 50\%.
+
+
+\section{X-ray computed tomography}
+
+\section{Magnetic resonance imaging}
+
+\section{Nuclear medicine imaging}
+
+%ultrasound, img processing, automated diagnosis
