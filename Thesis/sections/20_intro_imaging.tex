@@ -294,10 +294,134 @@ even faster and allow them to produce clear images (high contrast) with lower
 doses.
 
 \section{Magnetic resonance imaging}
+While the previous imaging modalities were based on X-rays, Magnetic Resonance
+Imaging (MRI) is based on magnetic fields. So instead of measuring the
+attenuation properties of various tissue types, we measure certain magnetic
+properties of the tissue. These magnetic properties mainly depend on the
+molecular composition of the material, for example on the amount of H$^+$
+ions present (the proton density). These electromagnetic waves are non-ionizing,
+meaning they cannot cause cancer due to prolonged exposure. The goal is the
+same: imaging slices of a patient's body. While technically an MRI scanner can
+generate slices in any orientation without even moving the patient, cross
+sectional slices are still used predominantly. Figure \ref{fig:mriscanner}
+shows a picture of an MRI scanner.
+
+\begin{figure}[ht]
+\begin{center}
+  \includegraphics[width=\linewidth]{img/mriscanner.jpg}
+  \caption{A Phlips MRI scanner. The patient takes place on the bed and is
+  moved inside the toroid, but is not moved again during the procedure.}
+  \label{fig:mriscanner}
+\end{center}
+\end{figure}
 
 \subsection{History}
 
 \subsection{Technical background}
+Unfortunately, the fundamental concepts that make MRI scanners work go beyond
+classic physics, and instead requires special relativity, quantum mechanics and
+quantum electrodynamics. Clearly, this is way beyond the scope of this text. We
+will present a simplified version of the core principles based on
+\cite{suetens} instead.
+
+MRI scanners influence and measure the magnetic properties of atom nuclei in the
+patient's tissue. During typical studies, H$^+$ ions (i.e., protons) are used
+because of their abundance in the human body, although alternatives exist
+(e.g. ${}^{13}_6$C or ${}^{17}_8$O).
+
+When the scanner is operational, a large magnetic field $\vec{B} = (0,0,B_0)$
+(in the order of a couple Telsas) is induced along the patient's length using a
+big electromagnetic coil. By supercooling the coil, the resistance drops and
+power consumption can be reduced significantly.
+
+The magnetic field $\vec{B}$ influences the magnetic moments $\vec{\mu_i}$ of
+the nuclei, causing them to precess around the z-axis with precession frequency
+$\omega_0 = f(B_0)$. Associated with the external magnetic field and the
+individuel magnetic moments is the potential energy $E$. Quantum mechanics
+states that for protons, this energy can only have two values, the so-called
+spin up ($E_\uparrow$, lowest) and spin down ($E_\downarrow$, highest) state. In
+these states, the $\vec{\mu_i}$ point respectively upwards ($u_z > 0$) and
+downwards ($u_z < 0$), although transverse components are still present. Most
+protons will be in the lowest energy state, but they can be flipped by
+absorbing a photon with the appropriate amount of energy $\Delta E$. This holds
+when the photon has a specific Larmor frequency $\omega_{RF}$, which happens to
+be equal to $\omega_0$. In a 1T field, the Larmor frequency for hydrogen is
+42.6 MHz, a radio-frequency (RF) wave.
+
+Of course, we are more interested in macroscopic voxels (3D pixels) than in the
+individual nuclei. Fortunately, the net magnetization vector $\vec{M_0}$ of each
+voxel is simply the sum of all individual magnetic moments $\mu_i$. The
+magnitude of this vector roughly represents the proton density in the voxe. In
+dynamic equilibrium, $\vec{M_0}$ points in the same direction as $\vec{B_0}$
+because there are more nuclei in the spin up state and the individual transverse
+components cancel eachother out. Unfortunately, due to technical reasons we can only
+measure the transverse component of $\vec{M}$. As a solution, we will disturb
+the dynamic equilibrium with an RF pulse, causing more protons to flip to the
+spin down state. This RF wave has a magnetic component $\vec{B_1}$. Following
+the same logic as above, $\vec{B_1}$ causes $\vec{M}$ to precess around it. With
+the appropriate timing, $\vec{M}$ can be flipped over either $\alpha=90$ or 180
+degrees.
+
+After the pulse, the system returns to dynamic equilibrium during a process
+called relaxation. We can distinguish between two effects. First, spin-spin
+relaxation is responsible for the disappearance of the transverse component of
+the net magnetization vector due to loss of phase coherence (increase in
+entropy while energy stays constant). This process can easily be approximated
+by a first order model with a time constant $T_2$, called the spin-spin
+relaxation time.
+
+\begin{equation}
+M_{tr}(t) = M_0 \sin(\alpha) e^{-t/T_2}
+\end{equation}
+
+Different tissue types have different inherent $T_2$ times, which we will
+exploit later.
+
+\begin{figure}[ht]
+\begin{center}
+  \includegraphics[width=\linewidth]{img/relaxation.png}
+  \caption{Schematic overview of relaxation after a 90 degree pulse. \cite{suetens}}
+  \label{fig:relaxation}
+\end{center}
+\end{figure}
+
+Second, spin-lattice relaxation is responsible for regenerating the
+longitudinal component of $\vec{M}$. Similarly, this process can be linked to a
+$T_1$ relaxation time. $T_1$ is also a tissue property, and is always larger
+than $T_2$.
+
+Using a quadrature detector in the x-y plane, we get the following reading
+after one 90 degree pulse:
+\begin{equation}
+s(t) = M_{tr}(t) = M_0 e^{-t/T_2}
+\end{equation}
+
+To also measure $T_1$, we have to repeat the 90 degree pulse after repetition
+time TR:
+\begin{equation}
+s(t) = M_0 (1 - e^{-TR/T_1}) e^{-t/T_2}
+\end{equation}
+
+Clearly the result is not just the proton density $M_0$, but involves
+other factors as well. This is not necessarily a problem as the $T_1$ and
+$T_2$ factors can increase the discriminative power of the scanner. If a short
+$TR$ is chosen, the image is said to be $T_1$ weighted. If instead a long $TE$
+(moment of measurement) is chosen, the image is said to be $T_2$ weighted.
+Remember that $TR$ and $TE$ can be chosen by the operator, while $T_1$, $T_2$
+are tissue dependent.
+
+The attentive reader will have noticed that there is no spatial information
+encoded in this signal yet. Using this approach we could only measure the
+combined effects of all relaxations, which is useless. To solve this, we
+superimpose additional gradients $\vec{G_{x/y/z}}$ (in the order of
+milliTesla/meter) onto $\vec{B_0}$. This in turn affects the Larmor frequency.
+The exact details are far from trivial will be omitted, but involve the
+3D k-space. After the signal has been sampled everywhere in the region of
+interest in the k-space, a simple inverse Fourier transformation yields the
+image we are looking for.
+
+%fMRI (oxygen T2)
+%flexible
 
 \subsection{Recent advancements}
 
