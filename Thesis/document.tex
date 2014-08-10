@@ -17,14 +17,13 @@
 %\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
 \definecolor{kuleuven}{RGB}{29,141,176}
 \definecolor{kuleuven1}{RGB}{82,189,236}
-\usepackage{geometry}
+\usepackage[]{geometry} %bindingoffset=25mm  hmarginratio=2:3
 \usepackage{hyperref}
 \usepackage{mathrsfs}
+%\usepackage{layout} \layout
 
 \newcommand{\nocontentsline}[3]{}
 \newcommand{\tocless}[2]{\bgroup\let\addcontentsline=\nocontentsline#1{#2}\egroup}
-
-
 
 \makeindex
 \begin{document}
@@ -90,14 +89,14 @@ het behalen van de graad}} \linebreak
 
 \pagestyle{empty}
 
-\renewcommand*\contentsname{Inhoud}
+%\renewcommand*\contentsname{Inhoud}
 \tableofcontents
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \setlength{\parindent}{0cm} % Default is 15pt.
-\setlength{\parskip}{1ex plus 0.3ex minus 0.2ex}
-
+%\setlength{\parskip}{1ex plus 0.3ex minus 0.2ex}
+\setlength{\parskip}{2ex plus 1ex minus 1ex}
 
 \input{sections/00_abstract.tex} %TODO dankwoord?
 \mainmatter

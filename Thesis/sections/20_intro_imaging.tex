@@ -14,7 +14,7 @@ significantly, it has become indispensible in the modern age medical setting
 The most important aspect of diagnostic medical imaging is image production, but
 various other aspects are involved. Image processing, image display, image
 recording, image transmission and image storage are all related. Modern day
-Picture Archoving and Communication Systems (PACS) provide all these features.
+Picture Archiving and Communication Systems (PACS) provide all these features.
 Once the image has been captured and processed, it can be presented to a
 radiologist for diagnosis. In recent years, scientists have focussed on
 augmenting the physician's diagnostic ability with various Computer Aided
@@ -31,11 +31,11 @@ the most important imaging modalities.
 
 \section{Radiography}
 Radiographs are the simplest form of medical imaging based on X-rays. These rays
-can travel through solid objects, but attenuate based on the materials they met
+can travel through solid objects, but attenuate based on the materials they meet
 along their path. For example, when passing through a human hand, the
 attenuation is stronger when passing through bones rather than through soft
 tissue. The image can be recorded (in negative) on ordinary photographic paper
-and processed in darkrooms. \autoref{fig:xrayhand} shows the result.
+and processed in darkrooms. \autoref{fig:xrayhand} shows am example.
 
 \begin{figure}[ht]
 \begin{center}
@@ -68,16 +68,19 @@ simplified mathematical and physical background based on the book of prof.
 Suetens\cite{suetens}. X-rays are simply a form of electromagnetic waves
 consisting of photons with a wavelength $\lambda$ on the order of Angstr\o ms
 ($10^{-10}$m). The corresponding frequency $f$ places these rays firmly in the
-ionizing (radioactive) part of the spectrum. The energy of such a wave can be
-calculated with the following formula, where $c$ is the speed of light and $h$
-is Planck's constant.
+ionizing part of the spectrum - that is, they can cause cancer. The energy of
+such a wave can be calculated with the following formula, where $c$ is the
+speed of light and $h$ is Planck's constant.
 
 \begin{equation}
 	E = hf = \frac{hc}{\lambda}.
 \end{equation}
 
+This formula can of course easily be extended to include heterogeneous materials
+and variable attenuation coefficients.
+
 X-rays are generated in an X-ray tube, a vacuum tube consisting of a cathode and
-an anode current flowing through the cathode releases electrons,
+an anode. Current flowing through the cathode releases electrons,
 which are accelerated toward the anode by an applied voltage. Once the electrons
 hit the anode, they release part of their energy in the form of X-ray photons.
 Thus, the two most important settings of an X-ray scan are the applied
@@ -95,7 +98,7 @@ homogeneous material of depth $d$ is given by:
 To capture X-rays, a detector is needed. Traditionally, a screen-film detector
 was used. The familiar photographic film alone is very inefficient
 at capturing X-rays: only about 2\% of all photons are absorped. Because X-rays
-are radioactive, the applied dose cannot simply be increased to improve the
+are ionizing, the applied dose cannot simply be increased to improve the
 image quality. Instead, an intensifier screen is used in front of the film. This
 screen contains heavy chemical elements, whose electrons are excited by the
 incoming photons. When returning to their original state, these electrons emit
@@ -145,10 +148,10 @@ of the image at that frequency in the frequency domain (calculated using the
 Fourier transform). Contrast is dependent on the whole imaging process, but also
 on the size and shape of the objects in the image.
 
-Third, noise is partly the result of interfering processes. Yet, it is also
+Third, noise is partly the result of interfering phenomena. Yet, it is also
 inherent to the electromagnetic radiation itself because the waves themselves
 are stochastic processes. An important measure is the Signal to Noise Ratio
-(SNR) or more appropriately Contrast to Noise Ratio (CNR). Noise can be
+(SNR) or, more appropriately, the Contrast to Noise Ratio (CNR). Noise can be
 estimated by examining the result of an scan with no object present, a so-called
 flat-field image. Another measure for the amount of noise is the Wiener
 spectrum.
@@ -170,7 +173,7 @@ source-detector pair is rotated around the patient. From this raw data, a
 so-called filtered back projection algorithm can reconstruct the whole cross
 section image. A computer is needed to make sense of the output, hence the
 \emph{computed} in the name. \autoref{fig:ctscan} shows an example of a chest
-CT scan.
+CT scan and \autoref{fig:ctscanner} shows an actual scanner.
 
 \begin{figure}[ht]
 \begin{center}
@@ -185,7 +188,7 @@ CT scan.
 \subsection{History}
 Before computed tomography became possible, some simpler techniques were already
 being used to obtain slices from inside the patient's body. These techniques
-were simply called (non-computed) tomography. One example is linear tomography,
+were called (non-computed) tomography. One example is linear tomography,
 where source and detector move on parallel tracks, but in opposite directions,
 during the scanning process. This way, one section of the patient is always
 projected on the same spot of the detector, while the rest is averaged out.
@@ -201,7 +204,7 @@ mathematics invented by Radon. A decade later, in 1972, the first operational
 brain CT scanner (the EMI scanner) was designed by Godfrey Hounsfield, an
 Englishman. A scan took about 5 minutes, after which a computer performed
 calculation for up to 150 minutes. The final output was a 80px $\times$ 80px
-image. Cormack and Hounsfield shared the 1979 Nobel Prize in Physiology and
+image. Cormack and Hounsfield shared the 1979 Nobel Prize in Physiology or
 Medicine for their work related to CT scans.
 
 %helical, 1989
@@ -242,7 +245,8 @@ is equal to the 1D Fourier transform $P(k, \theta)$ of $p(r, \theta)$ (save for
 a simple polar coordinate transformation).
 
 \begin{equation}
-P(k, \theta) = M(k \cos \theta, k \sin \theta)
+\mathscr{F}_{1D}\{ p(r, \theta) \} = P(k, \theta) = M(k \cos \theta, k \sin
+\theta) = \mathscr{F}_{2D}\{ \mu(x, u) \}
 \end{equation}
 
 Because the inverse Fourier transform is well understood, we have a solution to
@@ -271,11 +275,12 @@ scanners often employ cone-shaped beams. The procedure outlined above can
 reconstruct a single slice by rotating around the subject by 180 degrees at a
 time (a circular CT). On the other hand, modern CT scanners often spiral around
 the patient while he moves through the toroid (a helical CT) to speed up the
-process and thus lowering the exposure. Another useful trick is to capture
+process and thus decrease the exposure. Another useful trick is to capture
 multiple slices at once by using multiple detector arrays. Until recently,
 manufactureres were in a so-called \emph{slice wars} to offer the most detector
-arrays. Needless to say, all this substantially complicates the maths to perform
-a back projection, but it is still possible and in fact often used today.
+arrays. Needless to say, all this substantially complicates the mathematics
+required to perform a back projection, but it is feasible and daily used in
+hospitals around the world.
 
 Another point of interest today is the combination of successive CT slices to
 generate a 3D model of the patient. Because of advancements in computer
@@ -286,25 +291,28 @@ plan their actions before and during complex surgery. %TODO cite
 \subsection{Future expectations}
 Because CT scanners still require relatively high doses of radiation, this is
 not an ideal solution. MRI scanners offer a safer alternative, but the large
-magnetic fields produced make them impossible to use on patients with certain
+magnetic fields produced make them impossible to use on patients with ferromagnetic
 implants. Another advantage over MRI is the superior sub-millimeter resolution
-that only CT scans can handle. These are only some of the reasons why they will
-not be replaced anytime soon. Future research will attempt to make CT scanners
-even faster and allow them to produce clear images (high contrast) with lower
-doses.
+that only CT scanners can handle. These are only some of the reasons why they
+will not be replaced anytime soon. Future research will attempt to make CT scanners
+even faster and allow them to produce clearer (i.e., higher contrast) images
+with lower doses.
 
 \section{Magnetic resonance imaging}
 While the previous imaging modalities were based on X-rays, Magnetic Resonance
-Imaging (MRI) is based on magnetic fields. So instead of measuring the
-attenuation properties of various tissue types, we measure certain magnetic
-properties of the tissue. These magnetic properties mainly depend on the
-molecular composition of the material, for example on the amount of H$^+$
-ions present (the proton density). These electromagnetic waves are non-ionizing,
-meaning they cannot cause cancer due to prolonged exposure. The goal is the
-same: imaging slices of a patient's body. While technically an MRI scanner can
-generate slices in any orientation without even moving the patient, cross
-sectional slices are still used predominantly. Figure \ref{fig:mriscanner}
-shows a picture of an MRI scanner.
+Imaging (MRI) is based on magnetic fields. It is sometimes also refered to as
+Nuclear Magnetic Resonance (NMR) in professional circles. However, the general
+public has a certain aversion to the world ``nuclear'', so MRI is most used.
+Instead of measuring the electromagnetic attenuation properties of various
+tissue types as in CT scanners, we measure certain magnetic properties of the
+tissue. These magnetic properties mainly depend on the molecular composition of
+the material, for example on the amount of H$^+$ ions present (the proton
+density). These electromagnetic waves are non-ionizing, meaning they cannot
+cause cancer due to prolonged exposure. The goal is the same: imaging slices of
+a patient's body. While technically an MRI scanner can generate slices in any
+orientation without even moving the patient, cross sectional slices are still
+used predominantly. Figure \ref{fig:mriscanner} shows a picture of an MRI
+scanner.
 
 \begin{figure}[ht]
 \begin{center}
@@ -316,6 +324,26 @@ shows a picture of an MRI scanner.
 \end{figure}
 
 \subsection{History}
+During the late 1960's, researcher in Aberdeen worked on the predecessor of the
+modern MRI scanner \cite{mrihistory}. Their goal was to distuingish between
+malignant tumors and normal tissue without using ionizing radiation. Instead of
+measuring the magnetic properties of the nuclei, they initially focussed on
+electrons. This proved to be a dead end, and by early 1970 the group moved on to
+NMR as we know it today. They realized that tumors have a longer $T_1$ time
+(see below), and focussed on that instead.
+
+Meanwhile in the USA, chemist Paul Lauterbur proposed a way to create images
+from NMR studies by using multiple field gradients to encode the position of
+each measurement \cite{lauterbur1973}. Another important contribution came from
+Peter Mansfield (now Sir), an English physicist. In 1974, he showed how to
+select spins from a specific slice and patented a method to selectively excite
+and define a slice across a sample. Lauterbur and Mansfield shared the 2003
+Nobel Prize in Physiology or Medicine for their work on NMR.
+
+From 1978 on, multiple research groups started presenting images generated by
+prototype MRI scanners. However, only in the early 1980's was the technology 
+ready for clinical and diagnostic use. By 1983, major multinational corporations
+started producing commercial MRI machines.
 
 \subsection{Technical background}
 Unfortunately, the fundamental concepts that make MRI scanners work go beyond
@@ -325,7 +353,7 @@ will present a simplified version of the core principles based on
 \cite{suetens} instead.
 
 MRI scanners influence and measure the magnetic properties of atom nuclei in the
-patient's tissue. During typical studies, H$^+$ ions (i.e., protons) are used
+patient's tissue. During typical studies H$^+$ ions (i.e., protons) are used
 because of their abundance in the human body, although alternatives exist
 (e.g. ${}^{13}_6$C or ${}^{17}_8$O).
 
@@ -342,24 +370,27 @@ states that for protons, this energy can only have two values, the so-called
 spin up ($E_\uparrow$, lowest) and spin down ($E_\downarrow$, highest) state. In
 these states, the $\vec{\mu_i}$ point respectively upwards ($u_z > 0$) and
 downwards ($u_z < 0$), although transverse components are still present. Most
-protons will be in the lowest energy state, but they can be flipped by
-absorbing a photon with the appropriate amount of energy $\Delta E$. This holds
-when the photon has a specific Larmor frequency $\omega_{RF}$, which happens to
-be equal to $\omega_0$. In a 1T field, the Larmor frequency for hydrogen is
-42.6 MHz, a radio-frequency (RF) wave.
+protons will be in the lowest energy state, but they can be flipped by absorbing
+a photon with the appropriate amount of energy $\Delta E = E_\downarrow -
+E_\uparrow$. This holds when the photon has a specific Larmor frequency
+$\omega_{RF}$, which happens to be equal to $\omega_0$. In a 1T field, the
+Larmor frequency for hydrogen is 42.6 MHz, a radio-frequency (RF) wave.
 
 Of course, we are more interested in macroscopic voxels (3D pixels) than in the
 individual nuclei. Fortunately, the net magnetization vector $\vec{M_0}$ of each
 voxel is simply the sum of all individual magnetic moments $\mu_i$. The
-magnitude of this vector roughly represents the proton density in the voxe. In
+magnitude of this vector roughly represents the proton density in the voxel. In
 dynamic equilibrium, $\vec{M_0}$ points in the same direction as $\vec{B_0}$
 because there are more nuclei in the spin up state and the individual transverse
-components cancel eachother out. Unfortunately, due to technical reasons we can only
-measure the transverse component of $\vec{M}$. As a solution, we will disturb
-the dynamic equilibrium with an RF pulse, causing more protons to flip to the
-spin down state. This RF wave has a magnetic component $\vec{B_1}$. Following
-the same logic as above, $\vec{B_1}$ causes $\vec{M}$ to precess around it. With
-the appropriate timing, $\vec{M}$ can be flipped over either $\alpha=90$ or 180
+components cancel each other out. To summarize: the large magnetic field made
+sure the net magnetization vectors of all voxels are aligned. 
+
+Unfortunately, due to technical reasons we can only measure the transverse
+component of $\vec{M}$. As a solution, we will disturb the dynamic equilibrium
+with a resonating RF pulse, causing more protons to flip to the spin down state.
+This RF wave has a magnetic component $\vec{B_1}$. Following the same logic as
+above, $\vec{B_1}$ causes $\vec{M}$ to precess around it. With the appropriate
+timing, $\vec{M}$ can be flipped over an angle $\alpha$ of either 90 or 180
 degrees.
 
 After the pulse, the system returns to dynamic equilibrium during a process
@@ -390,7 +421,11 @@ longitudinal component of $\vec{M}$. Similarly, this process can be linked to a
 $T_1$ relaxation time. $T_1$ is also a tissue property, and is always larger
 than $T_2$.
 
-Using a quadrature detector in the x-y plane, we get the following reading
+\begin{equation}
+M_l(t) = M_0 \cos(\alpha) e^{-t/T_1} + M_0 (1 - e^{-t/T_1})
+\end{equation}
+
+Using a quadrature detector in the xy-plane, we get the following reading
 after one 90 degree pulse:
 \begin{equation}
 s(t) = M_{tr}(t) = M_0 e^{-t/T_2}
@@ -402,23 +437,32 @@ time TR:
 s(t) = M_0 (1 - e^{-TR/T_1}) e^{-t/T_2}
 \end{equation}
 
+Notice how the 90 degree pulse conveniently eliminates the sine and cosine
+factors.
+
 Clearly the result is not just the proton density $M_0$, but involves
 other factors as well. This is not necessarily a problem as the $T_1$ and
 $T_2$ factors can increase the discriminative power of the scanner. If a short
 $TR$ is chosen, the image is said to be $T_1$ weighted. If instead a long $TE$
-(moment of measurement) is chosen, the image is said to be $T_2$ weighted.
-Remember that $TR$ and $TE$ can be chosen by the operator, while $T_1$, $T_2$
-are tissue dependent.
+(echo time = moment of measurement) is chosen, the image is said to be $T_2$
+weighted. Remember that $TR$ and $TE$ can be chosen by the operator, while $T_1$
+and $T_2$ are tissue dependent.
 
 The attentive reader will have noticed that there is no spatial information
 encoded in this signal yet. Using this approach we could only measure the
 combined effects of all relaxations, which is useless. To solve this, we
-superimpose additional gradients $\vec{G_{x/y/z}}$ (in the order of
+superimpose additional gradients $\vec{G}_{x/y/z}$ (in the order of
 milliTesla/meter) onto $\vec{B_0}$. This in turn affects the Larmor frequency.
-The exact details are far from trivial will be omitted, but involve the
+The exact details are far from trivial and will be omitted, but involve the
 3D k-space. After the signal has been sampled everywhere in the region of
 interest in the k-space, a simple inverse Fourier transformation yields the
 image we are looking for.
+
+Using two 90 degree pulses is just one of the many possible pulse sequences used
+in modern MRI scanners. Other examples include the spin-echo (SE) sequence and
+the gradient echo (GE) sequence. Each sequence has advantages and disadvantages
+with respect to discrimination of certain tissue types. The radiologist is
+responsible for making the proper choice.
 
 %fMRI (oxygen T2)
 %flexible
@@ -426,14 +470,108 @@ image we are looking for.
 \subsection{Recent advancements}
 
 \subsection{Future expectations}
+MRI scanners today are still far less ubiquitous than CT scanners, and only make
+up a few percent of the worldwide radiographic examinations. However, because of
+the various advantages over other modalities - mostly the fact that it is
+non-iozing radiation - usage is expected to rise steadily in the future. MRI
+will never completely replace CT because it cannot image hydrogen-poor
+structures such as bone and air.
+
+On top of that, future research will most likely improve the functional aspect
+(e.g. measuring blood flow) of MRI. This can be done by experimenting with
+nuclei other than hydrogen, by using new contrast agents and using novel pulse
+sequences. In addition - similar to CT scanners - research will try to increase
+the contrast and lower the aquisition times even further.
 
 \section{Nuclear medicine imaging}
+While the previous imaging modalities mostly focussed on obtaining static images
+of the patient, nuclear medicine imaging concentrates on so-called functional
+imaging: visualizing some kind of process (e.g. drug metabolism) in the human
+body. CT or MRI scanners also have this capability by exploiting certain side
+effects of their underlying phenomena, but the Signal to Noise Ratio (SNR) is
+always significantly lower.
+
+Diagnostic nuclear medicine imaging works by tracking radioactive isotopes as
+they move through the body. Other variants are used in the oncology departments
+to fight cancer, but we will not go deeper into that. 
+
+Two main scanner types fall under nuclear medicine imaging: Positron Emission
+Tomography (PET) and Single Photon Emission Computer Tomography (SPECT). The
+exact difference will be explained later on in the technical background section.
 
 \subsection{History}
 
 \subsection{Technical background}
+Before we explain how PET and SPECT scanners work, we will quickly refresh some
+important radioactive decay modes.
+
+The first is positron emission, also called $\beta^+$ decay. Positrons (e$^+$)
+are the anti-particles of electrons (e$^-$). During this decay, a proton (p$^+$)
+inside an atom is essentially transformed into a neutron (n) and a positron.
+
+\begin{equation}
+	p^+ \rightarrow n + e^+
+\end{equation}
+
+\begin{equation}
+	{}_Z^AX \rightarrow {}_{Z-1}^AY + e^+
+\end{equation}
+
+In the next couple of nanoseconds, the positron will fly into a electron and
+annihilate. The mass of the two particles is is converted into pure energy in
+the form of two photons ($\gamma$). Each photon carries 511 keV of energy and
+they fly away in opposite directions.
+
+This physical phenomenon forms the basis of Positron Emission Tomography (PET).
+A typical element used during such studies is $^{18}$F, which has a half-life of
+about 110 minutes. It yields stable $^{18}$O \cite{suetens}. The fact that two
+photons are emitted is very convenient. If both happen to be detected, we
+immediately know their projection line. (Remember that in CT scanners the
+projection line is known a priori and fixed between source and detector.)
+
+The inverse operation is also possible: $\beta^-$ decay by electron emission.
+Here, a neutron is converted into a proton and an electron.
+
+\begin{equation}
+	n \rightarrow p^+ + e^-
+\end{equation}
+
+\begin{equation}
+	{}_Z^AX \rightarrow {}_{Z+1}^AY + e^-
+\end{equation}
+
+In certain cases, the resulting Y atom is in a metastable state ($^{Am}$Y).
+This means the atom will later decay further into a more stable nuclear
+configuration, releasing one or more photons in the process. This is much more
+interesting diagnostic-wise, because unlike electrons, photons don't damage the
+tissue they pass through during emission. A common metastable element
+used is $^{99m}$Tc, generated after decay of $^{99}$Mo and with further decaying
+into $^{99}$Tc (half-life of six hours) by decaying a single photon of 140 keV.
+
+%electron capture
+
+$\beta^-$ decay is mainly used in SPECT scanners. Because only one photon is
+emitted, we cannot immediately tell where it came from when it is detected. To
+solve this, a mechanican collimater - a thick lead plate with holes in it - is
+used to absorp all photons that do not approximately fly perpendicular to it.
+Knowing this, we can estimate the projection line of the photons we managed to
+detect after they passed through the plate.
+
+Note that these photons form electromagnetic waves, and their frequencies are
+equal to or higher than those of the X-rays in earlier sections. This means that
+they obey the same physical laws, and thus they also attenuate when passing
+through tissue. However, in this context we refer to this form of radiation as
+$\gamma$-rays instead.
+
+The detectors used here differ significantly from those used with X-rays. Not
+only are there far fewer photons to be detected in the first place, but the
+acquisition time is also much longer. Photomultiplier tubes and more
+recently photodiodes are popular detectors in use today.
 
 \subsection{Recent advancements}
+While most researchers focussed on PET alone, others sought their fortune in
+hybrid scanners. For example, combining CT or MRI with PET scanners significantly
+improves the specificity compared to their stand-alone versions. \ldots
 
 \subsection{Future expectations}
 
