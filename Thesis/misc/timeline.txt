@@ -8,8 +8,6 @@ Tomography (rotating arm, no computer yet)
 1916: red adaptation goggles
 
 1917: Radon transform (CT backprojection)
-1934: Artificial radioactivity (Frédéric Joliot and Irène Joliot-Curie)
-1935: '-> Nobel Prize in Chemistry
 1937: approximate solution to large linear systems
 
 1940s: image intensifier
@@ -44,8 +42,6 @@ Tomography (rotating arm, no computer yet)
 
 2011: MRI/PET fusion
 2013: new generation scan duration < 1s: http://www.fastcoexist.com/3023731/this-machine-can-3-d-scan-your-insides-in-a-single-heartbeat
-
-????: safety
 
 Taming the Rays
 contrast agents
