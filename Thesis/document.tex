@@ -12,6 +12,7 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{makeidx}
+\usepackage[Lenny]{fncychap} %Sonny, Lenny, Glenn, Conny, Rejne, Bjarne, Bjornstrup
 \usepackage{pdflscape}
 %\usepackage{booktabs}
 %\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
@@ -89,16 +90,25 @@ het behalen van de graad}} \linebreak
 
 \pagestyle{empty}
 
-%\renewcommand*\contentsname{Inhoud}
+% \title{\Huge{Identification of important contributions in diagnostic medical imaging}}
+% 
+% \author{
+% 	Sven Van Hove \and Dennis Verhoeven \and Reinhilde Veugelers\\[1cm]
+% 	Department of Managerial Economics, Strategy and Innovation\\
+% 	Faculteit Economie en Bedrijfswetenschappen\\
+% 	KU Leuven
+% }
+% \maketitle
+
+\input{sections/00_abstract.tex}
+
 \tableofcontents
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\setlength{\parindent}{0cm} % Default is 15pt.
-%\setlength{\parskip}{1ex plus 0.3ex minus 0.2ex}
+\setlength{\parindent}{0cm}
 \setlength{\parskip}{2ex plus 1ex minus 1ex}
 
-\input{sections/00_abstract.tex} %TODO dankwoord?
 \mainmatter
 \pagestyle{headings}
 
@@ -107,11 +117,6 @@ het behalen van de graad}} \linebreak
 \input{sections/20_intro_imaging.tex}
 
 \input{sections/30_inventions.tex}
-%Beschrijving van uitvindingen
-
-%Score per uitvinding
-
-%Resultaten
 
 \input{sections/80_conclusion.tex}
 
@@ -119,7 +124,7 @@ het behalen van de graad}} \linebreak
 \bibliographystyle{alpha} %plain,unsrt,alpha,abbrv,acm,apalike,siam,ieeetr,..
 \bibliography{references} \addcontentsline{toc}{chapter}{Bibliografie}
 
-\vfill
+%\vfill
 
 \input{sections/90_appendix.tex}
 
