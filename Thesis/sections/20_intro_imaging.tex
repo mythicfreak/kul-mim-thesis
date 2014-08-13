@@ -118,7 +118,13 @@ incoming photons. When returning to their original state, these electrons emit
 visible light that can better be captured by the film, raising the absorption
 efficiency to about 50\%.
 
-%mammo
+Besides ordinary radiography, special classes such as fluoroscopy and
+mammography exist. Fluoroscopy generates time-lapse recordings instead of still
+images. With modern technology, tens of frames per second are achievable. Of
+course, each frame must be shot at a very low exposure rate to minimize patient
+risk. Mammography on the other hand produces images of the human breast. The
+challenge here is to generate very high resolution images, so that small masses
+can be seen.
 
 \subsection{Recent advancements}\label{ssec:recentradio}
 Relatively recently, X-ray systems have moved away from analogue detectors
@@ -159,7 +165,7 @@ Second, contrast is the intensity difference between neighbouring regions of the
 image. More formally, contrast at a given frequency is the amplitude component
 of the image at that frequency in the frequency domain (calculated using the
 Fourier transform). Contrast is dependent on the whole imaging process, but also
-on the size and shape of the objects in the image.
+on the size and shape of the objects in the image. 
 
 Third, noise is partly the result of interfering phenomena. Yet, it is also
 inherent to the electromagnetic radiation itself because the waves themselves
@@ -169,7 +175,14 @@ estimated by examining the result of an scan with no object present, a so-called
 flat-field image. Another measure for the amount of noise is the Wiener
 spectrum.
 
-In addition to these three elements, sometimes artifacts appear on scans. The
+Another frequently used metric called the Detective Quantum Efficiency (DQE) can
+compare various technologies without being dependent on the object being imaged.
+
+\begin{equation}
+DQE(f) = \frac{SNR(f)_{out}^2}{SNR(f)_{in}^2}
+\end{equation}
+
+In addition to these elements, sometimes artifacts appear on scans. The
 causes of these artificial image features vary widely depending on the image
 modality used and can also be caused by excessive post-processing.
 
