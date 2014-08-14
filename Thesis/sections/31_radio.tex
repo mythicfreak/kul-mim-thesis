@@ -75,10 +75,18 @@ displays). These TFTs are made of amorphous Silicon (a-Si). Because the used
 materials have a very high intrinsic resolution, the final image resolution is
 only limited by the kind of detector used.
 
+\begin{figure}[ht]
+\begin{center}
+  \includegraphics[width=\linewidth]{img/direct_FPD.png}
+  \caption{Components of a direct conversion flat panel detector. \cite{digitalradio}}
+  \label{fig:directfpd}
+\end{center}
+\end{figure}
+
 In indirect conversion DR, an extra element is added between the X-rays and the
 actual detector. A common example is a scintillator plate that converts X-rays
 into visible light. Alternatively, an image intensifier (II) can be used to
-amplify the output. This light can than be captured more easily by a
+amplify the light output. This light can than be captured more easily by a
 charge-coupled device (CCD, also used in digital cameras) or a TFT. Because of
 the extra step, the point spread function (PSF) increases and the resolution
 suffers slightly.
@@ -94,11 +102,57 @@ Instead of a CCD, TFTs can also be used in a similar fashion as in direct
 conversion DR FPDs. Only this time a scintillator is added. These scintillators
 use either Cesium Iodide (CsI) or Gd-based crystals. Contrary to Gd, CsI
 crystals can be structured, improving the image quality. The trade-off is their
-brittleness, making them less portable.
+brittleness, making them less portable. The visible light they emit is then
+captured by photo diodes and read out by a TFT array.
+
+\begin{figure}[ht]
+\begin{center}
+  \includegraphics[width=\linewidth]{img/indirect_FPD.png}
+  \caption{Components of an indirect conversion flat panel detector. \cite{digitalradio}}
+  \label{fig:indirectfpd}
+\end{center}
+\end{figure}
 
 For the actual assessment, we will focus on both direct and indirect FPDs.
 
 \subsection{Assessing novelty in functionality}
+Functionality-wise, we can distinguish between novelty in components and
+combinations thereof on the one hand, and novelty in natural effects exploited
+on the other hand.
+
+\subsubsection{Novelty in components}
+As explained above, digital radiography in general uses many of the same parts
+as analogue radiography. Only the detector is fundamentally different. Of course
+the real advantage of digitizing radiographs is what you can do with them
+afterwards. However, that is out of the scope of this text, and we will
+constrain ourselves to the hardware aspects for now.
+
+The next question we ask ourselves is whether these new (combinations) of
+components were already used before. The answer is yes. For example CCDs were
+invented in 1969 at AT\&T Bell Labs (patents: US3792322,  US3796927) and first
+used in digital cameras by 1975 \cite{solidstatesens}. On the other hand, the
+combination of a scintillator with CCDs to capture X-rays was not used before. 
+
+In the case of direct FPDs using TFTs, the results are similar. Engineers
+experimented with them as early as 1971 for use in display equipment
+\cite{lcdhistory}. To this day, they are almost exclusively used in LCD panels
+and in digital radiography. In conclusion, they were used before, but mostly in
+a field that is not closely related to medical imaging.
+
+\subsubsection{Novelty in natural effects exploited}
+Of course the primary natural effect exploited is that of the X-ray passing
+through tissue. This has not changed with digital radiography. On the other
+hand, the natural effects used in the detector are very distinct from classic
+photographic film. Where such films fall under the accomplishments of material
+science, modern digital recording equipment are made possible by advances in the
+electronic and semiconductor industry. Obviously these natural effects were
+exploited numerous times before by other digital equipment, but not equipment
+related to medical imaging.
+
+\subsubsection{Scores}
+In \autoref{tbl:funcscores1} we give an overview of the scores on the various
+topics.
+
 \begin{table}[h]
 \centering
 \begin{tabular}{l l}
@@ -106,15 +160,57 @@ For the actual assessment, we will focus on both direct and indirect FPDs.
 \multicolumn{2}{|c|}{Novelty in functionality} \\
 \hline
 A. Novelty of components & B. Novelty in natural effects exploited\\
-A1) & B1)\\ 
-A2) & B2)\\ 
+A1) 4 & B1) 8\\ 
+A2) 5 & B2) 5\\ 
 \hline
 \end{tabular}
 \caption{Novelty in functionality scores}
 \label{tbl:funcscores1}
 \end{table}
 
-\subsection{Assessing novelty in origins}
+\subsection{Assessing novelty in knowledge origins}
+Regarding knowledge origins (KOs), we can make a distinction between scientific
+and technological origins. To find these KOs, we first provide a list of
+problems that had to be solved for digital radiography to become feasible.
+
+The main purpose is to somehow intercept the X-rays and translate their
+intensities per pixel into a discrete values that can be processed by a
+computer. To do so, they X-rays must first be converted to electrical charges,
+which can then be interpreted as bits.
+
+Problem 1: converting the X-ray intensities to bits
+
+Problem 1.1: converting the X-rays to electrical charges
+
+Solution 1.1a: direct conversion: use a photoconducting material (a-Se)
+
+KO1: electromagnetism, semiconductors
+
+Solution 1.1b: indirect conversion: use a scintillator (CsI) and photodiodes (a-Si)
+
+KO2: electromagnetism, material science and semiconductors
+
+Problem 1.2: converting the electrical charges to bits
+
+Solution 1.2: use a TFT array
+
+KO3: digital electronics (mostly transistors)
+
+\subsubsection{Scores}
+Electromagnetism falls under scientific origins. The use of electromagnetism
+knowledge in medical imaging is certainly nothing special, so it receives low
+scores.
+
+The other origins fit better in the technological group. The use of digital
+electronics and all related disciplines makes digital radiography what it is.
+This warrants a high score, at least for the detector part. However, at
+the time of invention the digital electronics industry was booming and
+already widely in use in various other fields. In that regard it was only a
+matter of time before someone came up with the idea to combine digital
+electronics with radiography.
+
+\autoref{tbl:origscores1} shows the scores.
+
 \begin{table}[h]
 \centering
 \begin{tabular}{l l}
@@ -122,8 +218,8 @@ A2) & B2)\\
 \multicolumn{2}{|c|}{Novelty in knowledge origins} \\
 \hline
 A. Novelty of scientific origins & B. Novelty of technological origins\\
-A1) & B1)\\ 
-A2) & B2)\\ 
+A1) 2 & B1) 8\\ 
+A2) 2 & B2) 5\\ 
 \hline
 \end{tabular}
 \caption{Novelty in knowledge origins scores}
@@ -131,6 +227,86 @@ A2) & B2)\\
 \end{table}
 
 \subsection{Assessing technological impact}
+The last part of this digital radiography assessments looks into technological
+impact. Impact can be split into three parts: performance increase,
+technological accumulation and obsoleting previous technologies.
+
+\subsubsection{Performance increase}
+The goal of radiography is simply to make clear images that have a high
+diagnostic value. To that end, spatial resolution, contrast and noise as
+discussed in \ref{sssec:imgquality} are all important. The aim of digital
+resolution was not necessarily to do better in this regard, because analogue
+images were already very detailed. If the quality is on par, we should consider
+ourselves happy.
+
+As explained above, resolution was a problem with computer radiography using
+storage phosphors. However, the materials used in flat panel detectors all have
+a high inherent spatial resolution. Only the size of the underlying TFT array
+limits the final image resolution. Because analogue radiographs are not
+expressed in number of pixels, the performance comparison is complicated.
+However, tests performed by \cite{review} show that diagnostic value of analogue
+and digital images are almost on par as long as the pixels are about 0.1mm in
+size.
+
+Contrast on the other hand is a serious problem for digital radiography. The
+deep blacks of photographic film combined with the strong light from a lightbox
+creates very high contrast. In comparison, radiologists now have to look at
+images on their computer screen in a dark room. On the other hand, digital
+radiography makes up for this defect by offering the possibility of
+post-processing where it is not only possible to zoom in spatially, but also on
+a certain intensity interval (i.e., so-called grey-level transformations
+\cite{suetens}).
+
+Noise-wise, the electronic circuits introduce additional electronic noise on top
+of the electromagnetic noise. Modern electronics can minimize the former noise,
+as evident by our crisp digital photographs a big flat screens.
+
+Other advances in performance include: lack of geometric distortion, no veiling
+glare, uniform response across the field of view \cite{review}. In addition,
+costs are reduces because expensive photographic film is no longer needed, and
+time span is reduces because film development happens automatically and almost
+instantly.
+
+It is difficult to assign a single score to this component because of the many
+issues at play. The image quality did not necessarily improve much, but this was
+not the goal. The real performance increase is due to indirect opportunities
+opened up by the digital image format. Therefore, in our opinion this still
+deserves a fairly high score.
+
+\subsubsection{Technological accumulation}
+In this section we estimate the broadness, magnitude and novelty of the impact.
+
+\paragraph{Broadness of impact}
+The real breakthrough that made digital radiography possible was the
+advent of digital electronics. This breakthrough had a very broad impact on
+fields other than its own. Other fields looked directly at digital electronics,
+rather than digital radiography, for possible innovations. That is why this
+innovation does not score high on broadness of impact. It did however impact
+related fields such as CT and PET.
+
+\paragraph{Magnitude of impact}
+Although the broadness of impact was not big, and it mostly concentrated on
+highly related fields, the magnitude was considerable. In fact, computed
+tomography would not even be possible if it were not for the invention of
+digital detectors. The same goes (to a lesser extent) for detectors used in
+nuclear medicine imaging.
+
+\paragraph{Novelty of impact}
+The novelty of impact of digital radiography is very low because other
+technologies that never used digital electronics before, got their ideas from
+digital electronics in general, not specifically from digital radiography.
+
+\subsubsection{Obsoleting previous technologies}
+The last aspect of impact assessment is obsoleting previous technologies, i.e.
+analogue radiography. According to \cite{review} and \cite{suetens}, this has
+indeed happened. Few radiology departments still stick with analogue systems
+because of their lower cost and extreme reliability, but most of the world has
+permanently moved on. Not only in radiography, but also in related disciplines
+such as CT and PET.
+
+\subsubsection{Scores}
+\autoref{tbl:impactscores1} shows the final scores.
+
 \begin{table}[h]
 \centering
 \begin{tabular}{l l l}
@@ -138,12 +314,12 @@ A2) & B2)\\
 \multicolumn{3}{|c|}{Technological impact} \\
 \hline
 A. Performance increase & B. Tech. accumulation & Obsoleting previous tech.\\
-A) & B1a) & C)\\ 
-   & B1b) & \\ 
-   & B2a) & \\
-   & B2b) & \\
-   & B3a) & \\
-   & B3b) & \\
+A) 8 & B1a) 3 & C) 10\\ 
+     & B1b) 1 & \\ 
+     & B2a) 8 & \\
+     & B2b) 7 & \\
+     & B3a) 1 & \\
+     & B3b) 1 & \\
 \hline
 \end{tabular}
 \caption{Technological impact scores}
