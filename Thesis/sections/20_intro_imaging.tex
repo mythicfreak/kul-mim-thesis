@@ -324,7 +324,7 @@ will not be replaced anytime soon. Future research will attempt to make CT scann
 even faster and allow them to produce clearer (i.e., higher contrast) images
 with lower doses.
 
-\section{Magnetic resonance imaging}
+\section{Magnetic resonance imaging}\label{sec:mri}
 While the previous imaging modalities were based on X-rays, Magnetic Resonance
 Imaging (MRI) is based on magnetic fields. It is sometimes also referred to as
 Nuclear Magnetic Resonance (NMR) in professional circles. However, the general
@@ -336,8 +336,8 @@ the material, for example on the amount of H$^+$ ions present (the proton
 density). These electromagnetic waves are non-ionizing, meaning they cannot
 cause cancer due to prolonged exposure. The goal is the same: imaging slices of
 a patient's body. While technically an MRI scanner can generate slices in any
-orientation without even moving the patient, cross sectional slices are still
-used predominantly. Figure \ref{fig:mriscanner} shows a picture of an MRI
+orientation without even moving the patient, CT-like cross sectional slices
+are still used predominantly. Figure \ref{fig:mriscanner} shows a picture of an MRI
 scanner.
 
 \begin{figure}[ht]
@@ -349,14 +349,14 @@ scanner.
 \end{center}
 \end{figure}
 
-\subsection{History}
+\subsection{History}\label{ssec:mrihist}
 During the late 1960's, researcher in Aberdeen worked on the predecessor of the
 modern MRI scanner \cite{mrihistory}. Their goal was to distinguish between
 malignant tumors and normal tissue without using ionizing radiation. Instead of
 measuring the magnetic properties of the nuclei, they initially focused on
 electrons. This proved to be a dead end, and by early 1970 the group moved on to
 NMR as we know it today. They realized that tumors have a longer $T_1$ time
-(see below), and focused on that instead.
+(see below), and concentrated on that instead.
 
 Meanwhile in the USA, chemist Paul Lauterbur proposed a way to create images
 from NMR studies by using multiple field gradients to encode the position of
@@ -383,12 +383,12 @@ patient's tissue. During typical studies H$^+$ ions (i.e., protons) are used
 because of their abundance in the human body, although alternatives exist
 (e.g. ${}^{13}_6$C or ${}^{17}_8$O).
 
-When the scanner is operational, a large magnetic field $\vec{B} = (0,0,B_0)$
+When the scanner is operational, a large magnetic field $\vec{B_0} = (0,0,B_0)$
 (in the order of a couple Telsa) is induced along the patient's length using a
 big electromagnetic coil. By supercooling the coil, the resistance drops and
 power consumption can be reduced significantly.
 
-The magnetic field $\vec{B}$ influences the magnetic moments $\vec{\mu_i}$ of
+The magnetic field $\vec{B_0}$ influences the magnetic moments $\vec{\mu_i}$ of
 the nuclei, causing them to precess around the z-axis with precession frequency
 $\omega_0 = f(B_0)$. Associated with the external magnetic field and the
 individuel magnetic moments is the potential energy $E$. Quantum mechanics
@@ -414,10 +414,10 @@ sure the net magnetization vectors of all voxels are aligned.
 Unfortunately, due to technical reasons we can only measure the transverse
 component of $\vec{M}$. As a solution, we will disturb the dynamic equilibrium
 with a resonating RF pulse, causing more protons to flip to the spin down state.
-This RF wave has a magnetic component $\vec{B_1}$. Following the same logic as
-above, $\vec{B_1}$ causes $\vec{M}$ to precess around it. With the appropriate
-timing, $\vec{M}$ can be flipped over an angle $\alpha$ of either 90 or 180
-degrees.
+This RF wave has a magnetic component $\vec{B_1} = (B_1, 0, 0)$. Following the
+same logic as above, $\vec{B_1}$ causes $\vec{M}$ to precess around it. With the
+appropriate timing, $\vec{M}$ can be flipped over an angle $\alpha$ of either 90
+or 180 degrees.
 
 After the pulse, the system returns to dynamic equilibrium during a process
 called relaxation. We can distinguish between two effects. First, spin-spin
@@ -466,13 +466,16 @@ s(t) = M_0 (1 - e^{-TR/T_1}) e^{-t/T_2}
 Notice how the 90 degree pulse conveniently eliminates the sine and cosine
 factors.
 
-Clearly the result is not just the proton density $M_0$, but involves
-other factors as well. This is not necessarily a problem as the $T_1$ and
-$T_2$ factors can increase the discriminative power of the scanner. If a short
-$TR$ is chosen, the image is said to be $T_1$ weighted. If instead a long $TE$
-(echo time = moment of measurement) is chosen, the image is said to be $T_2$
-weighted. Remember that $TR$ and $TE$ can be chosen by the operator, while $T_1$
-and $T_2$ are tissue dependent.
+Clearly the result is not just the proton density $M_0$, but involves other
+factors as well. This is not necessarily a problem as the $T_1$ and $T_2$
+factors can increase the discriminative power of the scanner. If a short $TR$ is
+chosen, the image is said to be $T_1$ weighted because long $TR$ times cause the
+$T_1$ factor to diminish. If on the other hand a long $TE$ (echo time = moment
+of measurement) is chosen, the image is said to be $T_2$ weighted. Indeed, a
+short $TE$ time decreases the $T_2$ factor. By combining a long $TR$ with a
+short $TE$, we have a relatively pure proton density image. Remember that $TR$
+and $TE$ can be chosen by the operator, while $T_1$ and $T_2$ are tissue
+dependent.
 
 The attentive reader will have noticed that there is no spatial information
 encoded in this signal yet. Using this approach we could only measure the

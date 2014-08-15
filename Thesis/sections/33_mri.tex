@@ -1,7 +1,52 @@
-\section{MRI invention: }
-\subsection{Defining the technology}
+\section{MRI invention}
+Normally we only consider inventions from 1980 onwards, but for this section we
+would like to make an exception. The invention of the MRI scanner itself was a
+veritable breakthrough, and still happened relatively close to 1980. Because we
+already had a close look at MRI in \autoref{sec:mri}, we will skip the
+technology definition and go straight to the assessment.
 
 \subsection{Assessing novelty in functionality}
+\subsubsection{Novelty in components}
+The purpose of MRI scanners is largely the same as that of CT scanners: create
+cross-sectional images to look into patient's bodies without using invasive
+techniques. The essential components of CT are the X-ray source and the
+detector. With MRI, we again have a signal source and a signal detector.
+However, this time the source is a large electromagnet, and the detector is a
+quadrature detector.
+
+Electromagnets are used in various other technologies to do the same thing:
+generate magnetic fields. Examples include motors, generators, transformers,
+relays and loudspeakers. In that sense the choice was not very special.
+
+Similarly, quadrature detectors are used universally whenever signal
+demodulation is required \cite{quadrature}. Remember that MRI operates in the
+radio frequency range, so ordinary radio technology could be repurposed for use
+in these scanners.
+
+In summary, these components were not used in medical imaging before the advent
+of MRI. Yet, once it was decided to exploit magnetic fields, the choice of
+components was rather trivial.
+
+\subsubsection{Novelty in natural effects exploited}
+MRI has one thing in common with the other imaging modalities discussed: they
+all use electromagnetic radiation in one form or another. Nonetheless, the way
+this natural effect is exploited here is considerable different from other
+modalities. In radiography and CT, we measure the X-ray attenuation when
+traveling through the human body. With nuclear medicine, we essentially detect
+photons emitted by radioactive materials. MRI on the other hand influences and
+measures the magnetic properties of tissues, in particular the proton density,
+the $T_1$ time or the $T_2$ time.
+
+In a way, every researcher that ever worked on imaging based on magnetic fields
+contributed to the eventual creating of MRI. Of course some groups took a
+slightly different turn (e.g. measuring properties of electrons instead of
+protons), but their larger goal was the same. To our knowledge no one
+experimented with these specific magnetic properties for any other purposes.
+
+\subsubsection{Scores}
+In \autoref{tbl:funcscores3} we give an overview of the scores on the various
+topics.
+
 \begin{table}[h]
 \centering
 \begin{tabular}{l l}
@@ -9,8 +54,8 @@
 \multicolumn{2}{|c|}{Novelty in functionality} \\
 \hline
 A. Novelty of components & B. Novelty in natural effects exploited\\
-A1) & B1)\\ 
-A2) & B2)\\ 
+A1) 10 & B1) 8\\ 
+A2) 3 & B2) 8\\ 
 \hline
 \end{tabular}
 \caption{Novelty in functionality scores}
@@ -18,11 +63,47 @@ A2) & B2)\\
 \end{table}
 
 \subsection{Assessing novelty in knowledge origins}
-\subsubsection{Novelty of scientific origins}
+Once again, we start with a list of problems and corresponding solutions.
 
-\subsubsection{Novelty of technological origins}
+Problem 1: measure proton density in tissue
+
+Problem 1.1: align net magnetization vectors
+
+Solution 1.1: generate a large magnetic field
+
+KO1: electromagnetism
+
+Problem 1.1.1: increase field strength, lower power consumption
+
+Solution 1.1.1: superconductivity by extreme cooling
+
+KO2: physics (cryogenics), material science
+
+Problem 1.2: measure magnetization vector
+
+Solution 1.2a: disturb equilibrium with the appropriate pulse sequence
+
+KO3: theoretical basis from electromagnetism, but to out knowledge never used
+before in technology
+
+Solution 1.2b: record relaxation phenomena using quadrature detector
+
+KO4: analogue electronics, radio equipment 
+
+Problem 2: localize position using signal
+
+Solution 2: apply a magnetic field gradient
+
+KO5: electromagnetism, recently used in \cite{nanogradients1, nanogradients2},
+older: \cite{oldgradients}.
 
 \subsubsection{Scores}
+None of these knowledge origins, except the usage of specific pulses, is out of
+the ordinary. Radio equipment is also a new technological origin, but its
+purpose in other inventions is very similar. That is why in
+\autoref{tbl:origscores3} we give low scores except for this technological
+origin.
+
 \begin{table}[h]
 \centering
 \begin{tabular}{l l}
@@ -30,8 +111,8 @@ A2) & B2)\\
 \multicolumn{2}{|c|}{Novelty in knowledge origins} \\
 \hline
 A. Novelty of scientific origins & B. Novelty of technological origins\\
-A1) & B1)\\ 
-A2) & B2)\\ 
+A1) 2 & B1) 6\\ 
+A2) 2 & B2) 7\\ 
 \hline
 \end{tabular}
 \caption{Novelty in knowledge origins scores}
@@ -58,12 +139,9 @@ A2) & B2)\\
 \multicolumn{3}{|c|}{Technological impact} \\
 \hline
 A. Performance increase & B. Tech. accumulation & Obsoleting previous tech.\\
-A) & B1a) & C)\\ 
-   & B1b) & \\ 
-   & B2a) & \\
-   & B2b) & \\
-   & B3a) & \\
-   & B3b) & \\
+A)   & B1 a)  --- b)  & C) \\ 
+     & B2 a)  --- b)  & \\
+     & B3 a)  --- b)  & \\
 \hline
 \end{tabular}
 \caption{Technological impact scores}
