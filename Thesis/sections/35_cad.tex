@@ -1,31 +1,19 @@
-\section{CAD invention: }
-For this last assessment, we draw from the field of Computer-aided Diagnosis
-(CAD). This is one of the major research areas in diagnostic medical imaging
-\cite{cadhistory}. Instead of focusing on the image creation process, CAD
-technologies help radiologists with the actual diagnosis of the image. You can
-think of CAD as a second opinion. This is in contrast with Automated Computer
-Diagnosis (ACD) where the computer does all the work and (in theory) no
-physician is needed anymore.
+\section{CAD invention: machine learning techniques for mammography}
+For this last assessment, we draw from the field of Computer-aided Diagnosis.
+For the rest of this section, we will focus on the usage of machine learning
+techniques for CADe in mammography. Breast cancer is one of the deadliest
+cancers today, but fortunately early detection significantly improves the
+chances of survival \cite{mammoairecent}.
 
-A (non-exhaustive) list of possible application of CAD include detection of
-vertebral fractures on radiographs, detection of microcalcifications on
-mammographs, detection of cranial aneurysms in MRA images and detection of lung
-nodules in CT scans \cite{cadhistory}.
-
-US4907156 \cite{chan1990method}
-
-Early in the 1980's, when research on this topic began, the most common
-techniques fell under basic image processing. For example, a special filter was
-invented to accentuate lung nodules, and another one to suppress them. These
-filters were then both applied to the same image, and the suppressed
-was subtracted from the accentuated version. The result should then be a
-completely black image, save for the nodule-like structures in the image.
-
-(NASA img procession)
-
-AI, machine learning
+%\cite{mammoai}
 
 \subsection{Defining the technology}
+As explained in \autoref{ssec:cadadv}, machine learning comprises a large group
+of methods and techniques. We are specifically interested in (binary)
+classifiers to determine whether a particular structure on a mammogram is
+suspicious enough. The exact nature of this classifier - whether it is a Support
+Vector Machine (SVM) or Random Forests (RF) or anything else - is of little
+interest for this assessment. We will simply look at them as one group with one goal.
 
 \subsection{Assessing novelty in functionality}
 

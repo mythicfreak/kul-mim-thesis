@@ -1,0 +1,98 @@
+\section{Computer-aided Detection and Diagnosis}
+This section on Computer-aided Detection and Diagnosis (CAD, not to be
+confused with Computer-aided Design) deals not with the image creation process,
+but with the subsequent processing. In this sense it is the odd one out.
+
+CAD is one of the major research areas in diagnostic medical imaging
+\cite{cadhistory}. CAD technologies help radiologists with the actual detection
+and diagnosis of pathologies in the image. Sometimes a further distinction is
+made between detection (CADe) and diagnosis (CADx). Either way, CAD does not
+attempt to replace physicians. You can think of it more as a second opinion.
+This is in contrast with Automated Computer Diagnosis (ACD) where the computer
+(supposedly) does all the work and no physician is needed anymore.
+
+A (non-exhaustive) list of possible application of CAD include detection of
+vertebral fractures on radiographs, detection of microcalcifications on
+mammograms, detection of cranial aneurysms in MRA images and detection of lung
+nodules in CT scans \cite{cadhistory}.
+
+Note: in the following sections related to CAD, we assume that the reader is
+familiar with the basics of statistical binary classification theory. The most
+important concepts are True Positives (TP), False Positives (FP), True Negatives
+(TN), False Negatives (FN), accuracy, sensitivity, specificity, and Receiver
+Operating Characteristic (ROC) curves.
+
+%US4907156 \cite{chan1990method}
+
+\subsection{History}
+Early in the 1980's, when large scale research on CAD began, the most common
+techniques fell under basic image processing. This is a branch of signal
+processing, applied to 2D signals (i.e., images). In the following years, a new
+field called Computer Vision formed around the subject. 
+
+To get a feel for such image processing techniques, consider a special filter
+to accentuate lung nodules, and another one to suppress them. Next, apply these
+two filters to the same image, and subtract the suppressed from the accentuated
+version. The result should then be a completely black image, save for the
+nodule-like structures in the image. 
+
+Early on, most research focused on ACD. It was not a success at first,
+because computers were not yet powerful enough, and advanced image processing
+algorithms were not yet available. The researchers had high hopes for the
+future, but unfortunately ACD never caught on. The algorithms' sensitivity and
+specificity simply did not match up to that of real physicians. That is why most
+researchers soon made the switch to CAD. To measure the performance of CAD
+systems, we do not only look at the outcome of the algorithm, but how this outcome
+combined with the physician's expertise can create synergy. Even if the
+sensitivity and specificity of the CAD algorithm are lower than that of the
+average physician, as long as the synergy is big enough, their combined use can
+trump that of the physician alone. This was proven for the first time in
+\cite{cadsynergy}.
+
+At the time, the most popular topics were related to cardiovascular diseases,
+lung cancer and breast cancer because of their high impact. This trend has
+largely continued, and even in recent year researchers still focus mostly on the
+latter two topics. \cite{cadhistory}
+
+\subsection{Technical background}
+Contrary to the discussion of the previous imaging modalities, we will not go
+into the technical details of these techniques. There reason is simple: there
+are too many of them, and they all work in a very different way. The interested
+reader is invited to read a book on the subject such as \cite{imgprocbook}.
+
+Fortunately, most CAD systems follow a generic scheme, independent of the
+underlying technology \cite{lungcadreview}. First of all, the organ of interest
+(e.g., the lungs) is segmented, and the rest of the image is discarded. Next,
+the object to be detected is somehow enhanced. The subtraction technique outlined
+above could work here. Then, these candidate objects have to be detected and
+segmented. After that, some kind of feature analysis is performed and the
+candidates are properly classified. Most techniques will still have plenty of
+false positives at this point, so FP reduction is required. If simple
+detection was the goal, the remaining candidates are the end result of this
+scheme. Else, an extra diagnosis (characterization) step is required.
+
+\subsection{Recent advancements}\label{ssec:cadadv}
+In the last two decades, more and more interest has been generated about the
+implementation of artificial intelligence (AI) and machine learning techniques
+in CAD. Examples of such techniques include Discriminant Analysis (DA),
+Artificial Neural Networks (ANN), Support Vector Machines (SVM) and decision
+tree models such as Random Forests (RF) \cite{lungcadreview, ginneken}. The
+exact details of each method are out of scope for this text, but fortunately
+most can be treated as black boxes with highly similar in- and outputs. The
+input typically consists of a large number of class-annotated sample images from
+which the algorithm can learn the differences between various classes. Examples
+of simple binary classes are tumors vs. non-tumors or malignant tumors vs.
+benign tumors. After the training phase is completed, an unannotated picture can
+be provided, and the algorithm will tell us - based on its internal model - to
+which class it belongs.
+
+\subsection{Future expectations}
+\cite{cadhistory} sees future potential of CAD in combination with Picture
+Archiving and Communication Systems (PACS). Since the digital revolution,
+hospitals had to come up with a new way of storing and managing all this imaging
+data. PACS was the solution, and today every modern hospital has a PACS in one
+form or another. This means every hospital sits on piles of old and unused
+medical images. By combining CAD, AI techniques such as data mining and PACS,
+research could gain a serious momentum boost and unforeseen applications could
+pop up. Furthermore, integrating CAD as a PACS module would make it more
+accessible and promote adoption.
