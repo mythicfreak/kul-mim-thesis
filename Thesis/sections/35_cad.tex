@@ -2,8 +2,16 @@
 For this last assessment, we draw from the field of Computer-aided Diagnosis.
 For the rest of this section, we will focus on the usage of machine learning
 techniques for CADe in mammography. Breast cancer is one of the deadliest
-cancers today, but fortunately early detection significantly improves the
-chances of survival \cite{mammoairecent}.
+cancers among women today, but fortunately early detection significantly
+improves the chances of survival \cite{mammoairecent}. To detect breast cancer,
+phycisians look for calcifications, masses and architectural distortions on
+high resolution radiographs (mammograms). CAD can help them locate each of these
+abnormalities.
+
+Note that - unlike tangible inventions - software algorithms are not so
+straightforward to assess using the radical innovation framework. For example,
+algorithms typically do not exploit natural effects directly (but computers do).
+However, we will make an effort to make a meaningful assessment regardless.
 
 %\cite{mammoai}
 
@@ -15,11 +23,24 @@ suspicious enough. The exact nature of this classifier - whether it is a Support
 Vector Machine (SVM) or Random Forests (RF) or anything else - is of little
 interest for this assessment. We will simply look at them as one group with one goal.
 
+When assessing this technology, we will compare it to earlier incarnations of
+CAD software without machine learning elements, and - where appropriate - with
+manual diagnosis by a physician.
+
 \subsection{Assessing novelty in functionality}
+Because we are dealing with software here, we can only assess the novel
+functionality based on novelty in components, not on novelty in natural effects
+exploited. 
 
 \subsubsection{Novelty in components}
+In \autoref{ssec:cadtech}, we discussed the generic scheme that most CAD systems
+follow. Each of these steps can be considered a separate component in the
+algorithm. In our case, the old step III and IV components are replaced by
+machine learning algorithms.
 
-\subsubsection{Novelty in natural effects exploited}
+Of course these algorithms were used before in a variety of other applications,
+but not necessarily related to diagnostic medical imaging
+\cite{machinelearningapps}. 
 
 \subsubsection{Scores}
 In \autoref{tbl:funcscores5} we give an overview of the scores on the various
@@ -32,8 +53,8 @@ topics.
 \multicolumn{2}{|c|}{Novelty in functionality} \\
 \hline
 A. Novelty of components & B. Novelty in natural effects exploited\\
-A1) & B1)\\ 
-A2) & B2)\\ 
+A1) 5 & B1) N/A\\ 
+A2) 4 & B2) N/A\\ 
 \hline
 \end{tabular}
 \caption{Novelty in functionality scores}
@@ -41,9 +62,38 @@ A2) & B2)\\
 \end{table}
 
 \subsection{Assessing novelty in knowledge origins}
-\subsubsection{Novelty of scientific origins}
+As usual, we start by listing problems encountered during development of this
+invention, and present the proposed solution and its related knowledge origin.
 
-\subsubsection{Novelty of technological origins}
+Problem 1: Detect abnormalities in mammographs
+
+Problem 1.1: Segment the region of interest
+
+Solution 1.1: Trivial, the mammograph only contains the region of interest
+
+Problem 1.2: Enhance abnormalities
+
+Solution 1.2: Use traditional image processing and computer vision methods
+
+KO1: signal processing, image processing, computer vision 
+
+Problem 1.3: Detect and segment abnormalities
+
+Solution 1.3: TODO
+
+KO2: statistics, artificial intelligence, machine learning
+
+Problem 1.4: Perform feature analysis and classification
+
+Solution 1.4 TODO
+
+KO2: statistics, artificial intelligence, machine learning
+
+Problem 1.5: Reduce false positives
+
+Solution 1.5: Use traditional false positive reduction methods
+
+KO3: 
 
 \subsubsection{Scores}
 \begin{table}[h]
@@ -63,6 +113,16 @@ A2) & B2)\\
 
 \subsection{Assessing technological impact}
 \subsubsection{Performance increase}
+Already in 1990, \cite{cadsynergy} proved using observer studies that
+radiologists' performance in detecting microcalcifications could increase when
+using CAD systems, even if the number of false positives at the time were still
+fairly high. The review article \cite{cadhistory} looked into various large
+scale studies regarding CAD in mammography, and found that all of them reported
+an increase in detection performance compared to pre-CAD diagnosis. Remember
+that performance is this context is the combined performance of physician plus
+computer, not computer alone. It should be mentioned that other studies found no
+performance gain, or even a performance decrease \cite{mammocadbad}, but they
+seem to be in the minority.
 
 \subsubsection{Technological accumulation}
 \paragraph{Broadness of impact}
@@ -72,6 +132,17 @@ A2) & B2)\\
 \paragraph{Novelty of impact}
 
 \subsubsection{Obsoleting previous technologies}
+Within three years of FDA approval, about 10\% of of U.S. facilities switched to
+CAD technology\footnote{\url{http://www.nih.gov/news/pr/apr2007/nci-04b.htm}}.
+CAD technology using machine learning has not yet obsoleted conventional
+mammography diagnosis, although performance definitely increases when employed.
+Some physicians are simply reluctant to rely on technology for performing their
+diagnosis. This will require a change in mindset, which simply takes time.
+On top of that, these systems imply an additional cost on top of the already
+expensive imaging equipment. Perhaps integrating them as modules in PACS as
+suggested by \cite{cadhistory} will speed up their adoption. For these reasons,
+researchers believe it is only a matter of time before such methods are used
+globally.
 
 \subsubsection{Scores}
 \begin{table}[h]
@@ -81,7 +152,7 @@ A2) & B2)\\
 \multicolumn{3}{|c|}{Technological impact} \\
 \hline
 A. Performance increase & B. Tech. accumulation & Obsoleting previous tech.\\
-A)   & B1 a)  --- b)  & C) \\ 
+A) 7  & B1 a)  --- b)  & C) 4\\ 
      & B2 a)  --- b)  & \\
      & B3 a)  --- b)  & \\
 \hline

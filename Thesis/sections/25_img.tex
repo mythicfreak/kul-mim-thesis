@@ -54,7 +54,10 @@ lung cancer and breast cancer because of their high impact. This trend has
 largely continued, and even in recent year researchers still focus mostly on the
 latter two topics. \cite{cadhistory}
 
-\subsection{Technical background}
+The first scanner with built-in CAD detection was approved by the U.S. Food and
+Drug Administration (FDA) in 1998.
+
+\subsection{Technical background}\label{ssec:cadtech}
 Contrary to the discussion of the previous imaging modalities, we will not go
 into the technical details of these techniques. There reason is simple: there
 are too many of them, and they all work in a very different way. The interested
@@ -62,14 +65,15 @@ reader is invited to read a book on the subject such as \cite{imgprocbook}.
 
 Fortunately, most CAD systems follow a generic scheme, independent of the
 underlying technology \cite{lungcadreview}. First of all, the organ of interest
-(e.g., the lungs) is segmented, and the rest of the image is discarded. Next,
-the object to be detected is somehow enhanced. The subtraction technique outlined
-above could work here. Then, these candidate objects have to be detected and
-segmented. After that, some kind of feature analysis is performed and the
-candidates are properly classified. Most techniques will still have plenty of
-false positives at this point, so FP reduction is required. If simple
-detection was the goal, the remaining candidates are the end result of this
-scheme. Else, an extra diagnosis (characterization) step is required.
+(e.g., the lungs) is segmented (I), and the rest of the image is discarded.
+Next, the object to be detected is somehow enhanced (II). The subtraction
+technique outlined above could work here. Then, these candidate objects have to
+be detected and segmented (III). After that, some kind of feature analysis is
+performed and the candidates are properly classified (IV). Most techniques will
+still have plenty of false positives at this point, so FP reduction is required
+(V). If simple detection was the goal, the remaining candidates are the end
+result of this scheme. Else, an extra diagnosis (characterization) step is
+required (VI).
 
 \subsection{Recent advancements}\label{ssec:cadadv}
 In the last two decades, more and more interest has been generated about the
@@ -96,3 +100,6 @@ medical images. By combining CAD, AI techniques such as data mining and PACS,
 research could gain a serious momentum boost and unforeseen applications could
 pop up. Furthermore, integrating CAD as a PACS module would make it more
 accessible and promote adoption.
+
+Aside from that, researchers will keep working on the underlying algorithms.
+This will hopefully bring steady improvements in performance.
