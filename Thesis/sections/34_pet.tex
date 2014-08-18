@@ -1,14 +1,14 @@
-\section{PET invention: FDG tracers}
-In this assessment related to PET we focus on something slighly unusual. Not a
-component or new technique used in the scanner, but on one of the popular
-tracers used during such examinations.
+\section{Nuclear medicine invention: F-FDG tracers}
+In this assessment related to nuclear medicine we focus on something slighly
+unusual. Not a component or new technique used in the scanner, but on one of the
+popular tracers used during such examinations.
 
 \subsection{Defining the technology}
 PET scanners work by detecting positrons formed by the decay of radioactive
 tracers, as explained in \autoref{chap:nuclearimg}. The most commonly used
 isotope is fluorine-18. It is very suited for PET because it almost exclusively
-emits positrons when decaying to oxygen. Its half life of 110 minutes gives it
-another attractive property.
+emits positrons when decaying to oxygen-18. Its half life of 110 minutes gives
+it another attractive property.
 
 However, the fluorine isotope is only responsible for the emission of positrons,
 it cannot be absorbed by or transported in the human body on its own. That is
@@ -27,13 +27,40 @@ for example, which typically grow very fast and consequently need lots of
 energy. Brain activity can also be measured regionally because active parts of
 the brain tend to metabolise more glucose.
 
-%impact: neuroscience
+Synthesis of FDG is possible in a number of ways, but most are rather
+sophisticated. 
+
+%impact: neuroscience, oncology
+
+%1948: NO, Fick principle, cerebral bloodflow (global)
+%1977: Sokoloff, C14-glucose [20]
+%1979: Reivich [21], FDG, Ido et al. [22]
+%uses: table 1
 
 \subsection{Assessing novelty in functionality}
 
 \subsubsection{Novelty in components}
+The F-FDG tracer is a composite made out of both FDG and fluorine-18. Earlier
+tracers also used FDG, but the isotopes were different. Carbon-14 was a popular
+choice \cite{radiopharma}. The fluorine-18 seems to be exclusively used as a
+radioactive tracer. It is sometimes also combined with other molecules, for
+example to track dopamine instead of glucose \cite{fluorodopa, fdopamine}.
+Another isotope (fluorine-19) is used as a contrast agent in MRI studies.
+
+The first paper describing the synthesis of F-FDG already mentioned specific
+usage as a radiopharmaceutical \cite{firstF-FDG}. To our knowledge, it has not
+been used outside this context. Within this context however, it was used towards
+many different goals in biomedical research such as neuroscience and oncology. 
 
 \subsubsection{Novelty in natural effects exploited}
+The tracer isotope exploits radioactive decay, more specifically positron
+emission decay. Considering PET works exclusively with positron emission decay,
+this is no special feat. However, what makes fluorine-18 special is that it
+hardly has any other decay mechanisms and that its half life has the ideal
+length for PET studies.
+
+The second natural effect exploited is how the human body treats FDG very
+similar to normal glucose.
 
 \subsubsection{Scores}
 In \autoref{tbl:funcscores4} we give an overview of the scores on the various
@@ -46,8 +73,8 @@ topics.
 \multicolumn{2}{|c|}{Novelty in functionality} \\
 \hline
 A. Novelty of components & B. Novelty in natural effects exploited\\
-A1) & B1)\\ 
-A2) & B2)\\ 
+A1) 6 & B1) 3\\ 
+A2) 2 & B2) 1\\ 
 \hline
 \end{tabular}
 \caption{Novelty in functionality scores}
@@ -55,11 +82,34 @@ A2) & B2)\\
 \end{table}
 
 \subsection{Assessing novelty in knowledge origins}
-\subsubsection{Novelty of scientific origins}
+To make F-FDG work, a number of problems had to be overcome.
 
-\subsubsection{Novelty of technological origins}
+Problem 1: find a tracer that emits positrons
+
+Solution 1: the following isotopes are known to emit positrons:  carbon-11,
+nitrogen-13, oxygen-15, fluorine-18, sodium-22, aluminium-26, potassium-40, 
+and iodine-121
+
+KO1: nuclear physics
+
+Problem 1.1: find a tracer with a suitable half life
+
+Solution 1.1: 
+
+KO2: nuclear physics
+
+Problem 2: find a suitable transport molecule that mimics glucose
+
+Solution 2: replace one hydroxyl group in normal glucose with a tracer 
+
+KO3: biochemistry
+
 
 \subsubsection{Scores}
+\autoref{tbl:origscores4} shows the results. Note that there are no technical
+knowledge origins. The scientific knowledge origins are rather straightforward
+for these kinds of applications.
+
 \begin{table}[h]
 \centering
 \begin{tabular}{l l}
@@ -67,8 +117,8 @@ A2) & B2)\\
 \multicolumn{2}{|c|}{Novelty in knowledge origins} \\
 \hline
 A. Novelty of scientific origins & B. Novelty of technological origins\\
-A1) & B1)\\ 
-A2) & B2)\\ 
+A1) & B1) N/A\\ 
+A2) & B2) N/A\\ 
 \hline
 \end{tabular}
 \caption{Novelty in knowledge origins scores}

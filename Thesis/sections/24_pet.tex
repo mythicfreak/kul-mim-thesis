@@ -7,12 +7,25 @@ effects of their underlying phenomena, but the Signal to Noise Ratio (SNR) is
 always significantly lower.
 
 Diagnostic nuclear medicine imaging works by tracking radioactive isotopes
-(tracers)) as they move through the body. In the early days hospitals needed
-their own cyclotron to produce these tracers, which significantly slowed
-adoption. Nowadays various companies deliver the needed tracers daily to
-hospitals around the world \cite{petreview}. Other variants of nuclear medicine
-are used in the oncology departments to fight cancer, but we will not go deeper
-into that.
+(tracers) as they move through the body. A distinction can be made between two
+kinds of radiopharmaceuticals. One type is simply meant to spread through the
+body, and is expected to have some default, static distribution after a
+sufficient amount of time has passed. Contrast agents used in CT and MRI scans
+fit this description rather well. Physicians can simply compare the actual
+distribution with the normal distribution, and take the differences into account
+when coming up with a diagnosis. The other type of radiopharmaceuticals is used
+in nuclear medicine, and is more dynamic. Here, we are not interested in some
+static distribution, but in specific movements of the tracer over time. These
+movements are intended to be correlated with some kind of biochemical or
+physiological process in the human body. Unlike with the former type, the latter
+type does not require high quality images to be effective. Rather, the fidelity
+of the tracer used paramount \cite{radiopharma}.
+
+In the early days hospitals needed their own cyclotron to produce these tracers,
+which significantly slowed adoption. Nowadays various companies deliver the
+needed tracers daily to hospitals around the world \cite{petreview}. Other
+variants of nuclear medicine are used in the oncology departments to fight
+cancer, but we will not go deeper into that.
 
 Two main scanner types fall under nuclear medicine imaging: Positron Emission
 Tomography (PET) and Single Photon Emission Computer Tomography (SPECT). The
@@ -56,7 +69,8 @@ invented.
 Research concerning PET scanners was performed at about the same time
 as SPECT scanners. Scientists soon realised their advantage, but adoption took
 much longer in comparison \cite{petreview}. G. Brownell and his group were the
-first to build a working dual planar PET scanner \cite{brownell}.
+first to build a working dual planar PET scanner \cite{brownell}. Only since
+1990 have PET scanners seen significant clinical usage \cite{pethistory}.
 
 \subsection{Technical background}
 Before we explain how PET and SPECT scanners work, we will quickly refresh some
