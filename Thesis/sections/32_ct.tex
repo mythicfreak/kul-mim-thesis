@@ -1,11 +1,58 @@
-\section{CT invention: }
+\section{CT invention: Electron-beam CT}
+Our next assessment deals with an innovation related to computed tomography. In
+particular, we take a closer look at Electron-beam Computed Tomography (EBCT),
+also know as Ultrafast CT.
+
 \subsection{Defining the technology}
+Traditional CT scanners have an X-ray tube embedded in the toroid body. By
+mechanically rotating the tube along with the detector, projections from an
+arbitrary angle can be captured.
+
+EBCT also needs to be able to capture projections from any angle, but takes
+another route. Remember that in a regular X-ray tube current flowing through the
+cathode releases electrons. The electrons are accelerated towards the anode by
+applying a voltage across the tube. When the electrons hit the anode at high
+speed, they release part of their energy as X-rays. The same principle is used
+in EBCT, except that the tube is physically split up in two dedicated parts. One
+is the cathode or electron gun andis placed along the patient's longitudinal
+axis. The other is the anode and is shaped in a ring around the patient. Using
+magnetic fields, the electrons fired from the cathode are deflected onto this
+ring, where they produce X-rays that can be captured by the detector as usual
+\cite{suetens}. \autoref{fig:ebctscanner} illustrates this.
+
+\begin{figure}[ht]
+\begin{center}
+  \includegraphics[width=\linewidth]{img/EBCT.png}
+  \caption{Rendering of an EBCT scanner's inner workings \cite{suetens}.}
+  \label{fig:ebctscanner}
+\end{center}
+\end{figure}
+
+The main advantage of this setup is that the X-ray source rotation is no longer
+mechanical. This allows for faster sweeps, which in turn make it easier to image
+moving structures such as the heart. One very prominent application is the
+detection of calcifications from atherosclerosis in the coronal arteries
+\cite{ultrafastcad}.
+
+More recently, these EBCT scanners have received strong competition from
+multislice helical CT scanners. The latter enjoy a widespread adoption and are
+also less constly. However, their rotation speed still cannot match that of
+Ultrafast CT \cite{ultravshelical}. In addition, this techniques requires a
+lower dose compared to traditional CT, and much lower than a CT angiography
+\cite{ultralowdose}.
 
 \subsection{Assessing novelty in functionality}
 
 \subsubsection{Novelty in components}
+As outlined above, the components are largely the same as in conventional CT
+scanners. Only their location is different. One additional component is the coil
+to generate the deflecting magnetic field. Such electromagnets were used before
+in imaging, particularly in MRI, but for a very different purpose.
 
 \subsubsection{Novelty in natural effects exploited}
+The same story applies for novelty in natural effects exploited: few new effects
+except bending of the electron beam using magnetic fields. The same principle
+was used much earlier in Cathode Ray Tube (CRT) monitors and televisions.
 
 \subsubsection{Scores}
 In \autoref{tbl:funcscores2} we give an overview of the scores on the various
@@ -18,8 +65,8 @@ topics.
 \multicolumn{2}{|c|}{Novelty in functionality} \\
 \hline
 A. Novelty of components & B. Novelty in natural effects exploited\\
-A1) & B1)\\ 
-A2) & B2)\\ 
+A1) 3 & B1) 3\\ 
+A2) 5 & B2) 5\\ 
 \hline
 \end{tabular}
 \caption{Novelty in functionality scores}
@@ -27,9 +74,15 @@ A2) & B2)\\
 \end{table}
 
 \subsection{Assessing novelty in knowledge origins}
-\subsubsection{Novelty of scientific origins}
+Again, we look into the problems that had to be solved to find the knowledge
+origins. We only look at the problems that are different in comparison to a
+traditional CT scanner.
 
-\subsubsection{Novelty of technological origins}
+Problem 1: deflect the electron beam onto the anode ring.
+
+Solution 1: use magnetic fields (electric field deflection only works for small angles)
+
+KO1: electromagnetism, CRT monitors
 
 \subsubsection{Scores}
 \begin{table}[h]
