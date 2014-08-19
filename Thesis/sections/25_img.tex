@@ -88,13 +88,21 @@ in CAD. Examples of such techniques include Discriminant Analysis (DA),
 Artificial Neural Networks (ANN), Support Vector Machines (SVM) and decision
 tree models such as Random Forests (RF) \cite{lungcadreview, ginneken}. The
 exact details of each method are out of scope for this text, but fortunately
-most can be treated as black boxes with highly similar in- and outputs. The
-input typically consists of a large number of class-annotated sample images from
-which the algorithm can learn the differences between various classes. Examples
-of simple binary classes are tumors vs. non-tumors or malignant tumors vs.
-benign tumors. After the training phase is completed, an unannotated picture can
-be provided, and the algorithm will tell us - based on its internal model - to
-which class it belongs.
+most can be treated as black boxes with highly similar in- and outputs. 
+
+Machine learning always works in two phases. The learning phase and the
+prediction phase. During the learning phase, a large number of class-annotated
+sample images are provided from which the algorithm can infer the differences
+between various classes. Examples of simple binary classes are tumors vs.
+non-tumors or malignant tumors vs. benign tumors. Once training has completed,
+an unannotated picture can be provided in the prediction phase. The algorithm
+will then predict - based on its internal model - to which class it belongs.
+
+Of course it is possible to use a complete image, pixel by pixel, as input.
+However, this is computationally very expensive. Instead, features are typically
+calculated to describe a certain region of interest in an image. Simple
+features are the minimum, average and maximum intensity, but they can become
+arbitrarily complex.
 
 \subsection{Future expectations}
 \cite{cadhistory} sees future potential of CAD in combination with Picture

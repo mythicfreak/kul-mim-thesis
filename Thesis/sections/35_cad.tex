@@ -1,12 +1,23 @@
 \section{CAD invention: machine learning techniques for mammography}
-For this last assessment, we draw from the field of Computer-aided Diagnosis.
-For the rest of this section, we will focus on the usage of machine learning
-techniques for CADe in mammography. Breast cancer is one of the deadliest
-cancers among women today, but fortunately early detection significantly
-improves the chances of survival \cite{mammoairecent}. To detect breast cancer,
-phycisians look for calcifications, masses and architectural distortions on
-high resolution radiographs (mammograms). CAD can help them locate each of these
-abnormalities.
+For this last assessment, we draw from the field of Computer-aided Detection and
+Diagnosis. For the rest of this section, we will focus on the usage of machine
+learning techniques for CADe in mammography. Breast cancer is one of the
+deadliest cancers among women today, but fortunately early detection
+significantly improves the chances of survival \cite{mammoairecent}. To detect
+breast cancer, phycisians look for calcifications, masses and architectural
+distortions on high resolution radiographs (mammograms). Traditionally, every
+image is checked by at least two radiologists to increase sensitivity. This is
+known as the second reader principle. However, this approach effectively doubles
+the workload of the radiology department. Perhaps more than in any other
+medical field, CAD can help radiologists by acting as a surrogate second reader
+for mammograms. \cite{mlinmedical}.
+
+One particular application where CAD has proven its worth, is in the detection
+of microcalcifications in mammograms. These are small calcium deposits of 0.05mm
+to 1mm in size that appear as bright white spots on the scan. They are known to
+appear in 30-50\% of all breast cancer cases, and are thus an important
+indicator. Due to their variable shape, brightness and size, they can be
+difficult to detect in the surrounding tissue \cite{mlinmedical}.
 
 Note that - unlike tangible inventions - software algorithms are not so
 straightforward to assess using the radical innovation framework. For example,
@@ -21,22 +32,23 @@ of methods and techniques. We are specifically interested in (binary)
 classifiers to determine whether a particular structure on a mammogram is
 suspicious enough. The exact nature of this classifier - whether it is a Support
 Vector Machine (SVM) or Random Forests (RF) or anything else - is of little
-interest for this assessment. We will simply look at them as one group with one goal.
+interest for this assessment. We will simply look at them as one group with one
+goal.
 
 When assessing this technology, we will compare it to earlier incarnations of
 CAD software without machine learning elements, and - where appropriate - with
 manual diagnosis by a physician.
 
 \subsection{Assessing novelty in functionality}
-Because we are dealing with software here, we can only assess the novel
+Because we are dealing with software algorithms, we can only assess the novel
 functionality based on novelty in components, not on novelty in natural effects
 exploited. 
 
 \subsubsection{Novelty in components}
 In \autoref{ssec:cadtech}, we discussed the generic scheme that most CAD systems
 follow. Each of these steps can be considered a separate component in the
-algorithm. In our case, the old step III and IV components are replaced by
-machine learning algorithms.
+algorithm. In our case, step III and IV are replaced by machine learning
+algorithms.
 
 Of course these algorithms were used before in a variety of other applications,
 but not necessarily related to diagnostic medical imaging
@@ -64,38 +76,61 @@ A2) 4 & B2) N/A\\
 \subsection{Assessing novelty in knowledge origins}
 As usual, we start by listing problems encountered during development of this
 invention, and present the proposed solution and its related knowledge origin.
+We again follow the five step detection scheme introduced before. 
 
-Problem 1: Detect abnormalities in mammographs
+Problem 1: detect abnormalities in mammograms
 
-Problem 1.1: Segment the region of interest
+Problem 1.1: segment the region of interest
 
-Solution 1.1: Trivial, the mammograph only contains the region of interest
+Solution 1.1: trivial, the mammogram only contains the region of interest
 
-Problem 1.2: Enhance abnormalities
+Problem 1.2: enhance abnormalities
 
-Solution 1.2: Use traditional image processing and computer vision methods
+Solution 1.2: use traditional image processing and computer vision methods
+(e.g.\ convolution filters)
 
-KO1: signal processing, image processing, computer vision 
+KO1: image processing
 
-Problem 1.3: Detect and segment abnormalities
+Problem 1.3: detect and segment abnormalities
 
-Solution 1.3: TODO
+Problem 1.3.1: detect abnormalities
 
-KO2: statistics, artificial intelligence, machine learning
-
-Problem 1.4: Perform feature analysis and classification
-
-Solution 1.4 TODO
+Solution 1.3.1: use an appropriately trained machine learning classifier
 
 KO2: statistics, artificial intelligence, machine learning
 
-Problem 1.5: Reduce false positives
+Problem 1.3.2: segment abnormalities
 
-Solution 1.5: Use traditional false positive reduction methods
+Solution 1.3.2: use traditional image processing and computer vision methods
+(e.g.\ region growing)
 
-KO3: 
+KO3: image processing
+
+Problem 1.4: perform feature analysis and classification
+
+Solution 1.4: use an appropriately trained machine learning classifier
+
+KO4: statistics, artificial intelligence, machine learning
+
+Problem 1.5: reduce false positives
+
+Solution 1.5: use traditional false positive reduction methods
+
+KO5: statistics, machine learning
 
 \subsubsection{Scores}
+Of the listed knowledge origins, we classify statistics as scientific, and
+the rest as technological.
+
+Statistics forms the fundamental basis for almost all machine learning
+algorithms. Some more primitive image processing techniques also explicitly use
+statistical theory, but most do not. The radiologists that perform a manual
+diagnosis use their advanced human visual system instead of relying on
+statistics.
+
+Of the technological knowledge origins, machine learning is by definition the
+only new element compared to earlier methods.
+
 \begin{table}[h]
 \centering
 \begin{tabular}{l l}
@@ -103,8 +138,8 @@ KO3:
 \multicolumn{2}{|c|}{Novelty in knowledge origins} \\
 \hline
 A. Novelty of scientific origins & B. Novelty of technological origins\\
-A1) & B1)\\ 
-A2) & B2)\\ 
+A1) 6 & B1) 3\\ 
+A2) 1 & B2) 5\\ 
 \hline
 \end{tabular}
 \caption{Novelty in knowledge origins scores}
@@ -122,14 +157,36 @@ an increase in detection performance compared to pre-CAD diagnosis. Remember
 that performance is this context is the combined performance of physician plus
 computer, not computer alone. It should be mentioned that other studies found no
 performance gain, or even a performance decrease \cite{mammocadbad}, but they
-seem to be in the minority.
+seem to be in the minority. They particularly lament the high number of false
+positives, claiming that these cause more unnecessary examinations and
+consequently an increase in medical insurance expenditures.
 
 \subsubsection{Technological accumulation}
+false positive reduction
 \paragraph{Broadness of impact}
+Machine learning is generally application-agnostic and thus a very versatile
+technique used in a variety of fields, from the financial world over social
+networks to medical applications. In fact, CAD was fairly late to jump on the
+machine learning bandwagon \cite{mlinmedical}. Nonetheless, a lot of related
+research is performed by biomedical scientists. This research is often generic
+enough in nature to potentially be applied to other fields again. Unfortunately,
+researchers outside of the medical field tend to ignore medical journals in
+favor of their own field-specific alternatives. This severely degrades the
+possible cross-pollination across fields, and in turn the broadness of impact.
+This is evident by the lack of medical literature citations from outside the
+field.
 
 \paragraph{Magnitude of impact}
+Globally speaking, the medical field only accounts for a relatively small slice
+of all machine learning research. Consequently, most breakthroughs will
+originate elsewhere, negatively impacting the magnitude of direct and
+indirect impact of CAD on unrelated applications.
 
 \paragraph{Novelty of impact}
+Due to the versatility of machine learning, there is a lot of potential
+for novelty of impact. But again, because of invisible walls surrounding the
+medical field, we could not locate specific applications that drew from
+biomedical machine learning research.
 
 \subsubsection{Obsoleting previous technologies}
 Within three years of FDA approval, about 10\% of of U.S. facilities switched to
@@ -137,12 +194,12 @@ CAD technology\footnote{\url{http://www.nih.gov/news/pr/apr2007/nci-04b.htm}}.
 CAD technology using machine learning has not yet obsoleted conventional
 mammography diagnosis, although performance definitely increases when employed.
 Some physicians are simply reluctant to rely on technology for performing their
-diagnosis. This will require a change in mindset, which simply takes time.
+diagnosis. This will require a change in mindset, which is a long-term endeavor.
 On top of that, these systems imply an additional cost on top of the already
 expensive imaging equipment. Perhaps integrating them as modules in PACS as
-suggested by \cite{cadhistory} will speed up their adoption. For these reasons,
-researchers believe it is only a matter of time before such methods are used
-globally.
+suggested by \cite{cadhistory} will speed up their adoption. Because of these
+reasons, researchers believe it is only a matter of time before such methods are
+used globally.
 
 \subsubsection{Scores}
 \begin{table}[h]
@@ -152,9 +209,9 @@ globally.
 \multicolumn{3}{|c|}{Technological impact} \\
 \hline
 A. Performance increase & B. Tech. accumulation & Obsoleting previous tech.\\
-A) 7  & B1 a)  --- b)  & C) 4\\ 
-     & B2 a)  --- b)  & \\
-     & B3 a)  --- b)  & \\
+A) 7 & B1 a) 3 --- b) 5 & C) 4\\ 
+     & B2 a) 3 --- b) 2 & \\
+     & B3 a) 3 --- b) 2 & \\
 \hline
 \end{tabular}
 \caption{Technological impact scores}
