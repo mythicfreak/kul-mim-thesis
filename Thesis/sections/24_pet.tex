@@ -1,25 +1,25 @@
 \section{Nuclear medicine imaging}\label{chap:nuclearimg}
 While the previous imaging modalities mostly focused on obtaining static images
 of the patient, nuclear medicine imaging concentrates on so-called functional
-imaging: visualizing some kind of process (e.g. drug metabolism) in the human
-body. CT or MRI scanners also have this capability by exploiting certain side
-effects of their underlying phenomena, but the Signal to Noise Ratio (SNR) is
-always significantly lower.
+imaging: visualizing some kind of dynamic process (e.g. drug metabolism) in the
+human body. CT or MRI scanners also have this capability by exploiting certain
+side effects of their underlying phenomena, but the Signal to Noise Ratio (SNR)
+is always significantly lower.
 
 Diagnostic nuclear medicine imaging works by tracking radioactive isotopes
 (tracers) as they move through the body. A distinction can be made between two
 kinds of radiopharmaceuticals. One type is simply meant to spread through the
 body, and is expected to have some default, static distribution after a
 sufficient amount of time has passed. Contrast agents used in CT and MRI scans
-fit this description rather well. Physicians can simply compare the actual
-distribution with the normal distribution, and take the differences into account
-when coming up with a diagnosis. The other type of radiopharmaceuticals is used
+fit this description rather well. Physicians can compare the actual
+distribution with the expected distribution, and take the differences into
+account when coming up with a diagnosis. The other type of radiopharmaceuticals is used
 in nuclear medicine, and is more dynamic. Here, we are not interested in some
 static distribution, but in specific movements of the tracer over time. These
 movements are intended to be correlated with some kind of biochemical or
 physiological process in the human body. Unlike with the former type, the latter
 type does not require high quality images to be effective. Rather, the fidelity
-of the tracer used paramount \cite{radiopharma}.
+of the tracer used is paramount \cite{radiopharma}.
 
 In the early days hospitals needed their own cyclotron to produce these tracers,
 which significantly slowed adoption. Nowadays various companies deliver the
@@ -51,8 +51,8 @@ activity in a patient's body \cite{specthistory, geigercountertube}.
 
 Meanwhile, Paul Direc, an English theoretical physicist, laid the theoretical
 foundation for what would later be known as a positron.\cite{positrontheory}.
-Around the same time, Frederic Joliot and Irene Curie (daughter of Pierre and
-Marie Curie) dicovered artificial radioactivity \cite{artificialradio}.
+Around the same time, Fr\'ed\'eric Joliot and Ir\`ene Curie (daughter of Pierre
+and Marie Curie) dicovered artificial radioactivity \cite{artificialradio}.
 
 A significant breakthrough came with the invention of the Anger camera (or
 gamma camera) in 1957 by Hal Anger, an American engineer and physicist. This
@@ -90,8 +90,9 @@ inside an atom is essentially transformed into a neutron (n) and a positron.
 
 In the next couple of picoseconds, the positron will fly into a electron and
 annihilate. The mass of the two particles is is converted into pure energy in
-the form of two photons ($\gamma$). Each photon carries 511 keV of energy and
-they fly away in opposite directions.
+the form of two photons ($\gamma$). Using Einstein's famous equation $E = mc^2$,
+we can calculate that each photon carries 511 keV of energy. They fly away in
+opposite directions.
 
 This physical phenomenon forms the basis of Positron Emission Tomography (PET).
 A typical element used during such studies is $^{18}$F, which has a half-life of
@@ -101,10 +102,10 @@ another molecule to facilitate uptake and transport in the body. One commonly
 used molecule is Fluorodeoxyglucose (FDG), which binds to fluorine-18 and is
 used to visualize glucose metabolism.
 
-The fact that two photons are emitted is very convenient. If both happen to be
-detected, we immediately know their projection line. (Remember that in CT
-scanners the projection line is known a priori and is fixed between source and
-detector.)
+The fact that two photons are emitted in opposite directions is very convenient.
+If both happen to be detected, we immediately know their projection line.
+(Remember that in CT scanners the projection line is known a priori and is fixed
+between source and detector.)
 
 The opposite operation is also possible: $\beta^-$ decay by electron emission.
 Here, a neutron is converted into a proton and an electron.
@@ -122,10 +123,8 @@ This means the atom will later decay further into a more stable nuclear
 configuration, releasing one or more photons in the process. This is much more
 interesting diagnostic-wise, because unlike electrons, photons don't damage the
 tissue they pass through during emission. A common metastable element
-used is $^{99m}$Tc, generated after decay of $^{99}$Mo and with further decaying
-into $^{99}$Tc (half-life of six hours) by decaying a single photon of 140 keV.
-
-%electron capture
+used is $^{99m}$Tc, generated after decay of $^{99}$Mo and further decaying
+into $^{99}$Tc (half-life of six hours) by emitting a single photon of 140 keV.
 
 $\beta^-$ decay is mainly used in SPECT scanners. Because only one photon is
 emitted, we cannot immediately tell where it came from when it is detected. To
@@ -169,10 +168,10 @@ relevant, but better methods are available. Iterative reconstruction based on
 Bayesian statistics or maximum likelihood calculations are becoming more
 popular \cite{suetens}.
 
-Another advancement, the Time-of-Flight (TOF) PET scanner estimates the
+Another advancement, the Time-of-Flight (TOF) PET scanner, estimates the
 source location of the photon along the projection line by measuring the
-difference in arrival time of the two photons. This only works reliably if the
-difference is smaller than 1ns, which in turn requires very advanced measuring
+difference in arrival time between the two photons. This only works reliably if
+the difference is smaller than 1ns, which in turn requires very advanced measuring
 equipment.
 
 While most researchers focus on nuclear medicine alone, others seek their

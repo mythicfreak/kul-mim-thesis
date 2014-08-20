@@ -57,8 +57,8 @@ Just like radiographs, CT scanners are based on X-ray technology. They also
 require a source and a detector, but this time they can rotate along the
 patient. For every rotation angle $\theta$, we obtain an intensity profile
 $I_\theta(r)$ along the axis $r$ perpendicular to the incoming X-rays (with
-uniform intensity $I_0$). The family of functions $I_\theta$ can be transformed
-into an attenuation profile $p(r, \theta) = -\ln \tfrac{I_\theta(r)}{I_0}$
+uniform incoming intensity $I_0$). The family of functions $I_\theta$ can be
+transformed into an attenuation profile $p(r, \theta) = -\ln \tfrac{I_\theta(r)}{I_0}$
 (often called a sinogram). This $p(r, \theta)$ is called the Radon transform of
 the attenuation distribution $\mu(x,y)$ in the slice plane.
 \begin{equation}
@@ -67,8 +67,8 @@ the attenuation distribution $\mu(x,y)$ in the slice plane.
 
 In short, the projections $p$ is what we can measure (or at least sample at
 fixed intervals) and the attenuation distribution $\mu$ is what we are
-interested in. The maths required to go from the latter to the former are pretty
-straightforward, but the reverse is more complicated. The inverse Radon
+interested in. The mathematics required to go from the latter to the former are
+pretty straightforward, but the reverse is more complicated. The inverse Radon
 transform $\mu = \mathscr{R}^{-1}(p)$ is needed.
 
 We will not go into details, but the solution lies in the projection theorem.
@@ -82,12 +82,12 @@ a simple polar coordinate transformation).
 \end{equation}
 
 Because the inverse Fourier transform is well understood, we have a solution to
-our problem. Simple calculate $P$ from $p$ as explained above, and then apply
+our problem. Simply calculate $P$ from $p$ as explained above, and then apply
 the inverse 2D Fourier transform to obtain $\mu$. By using the polar version of
 the Fourier transform, we can reduce artifacts. This approach is called filtered
 back projection \cite{suetens}.
 
-After all the calculations are performed, we typically acquire a 512px $times$
+After all the calculations are performed, we typically acquire a 512px $\times$
 512px scan. The values of the pixels in a CT scan are referred to as the CT
 numbers and are expressed in Hounsfield Units (HU). They are calculated using
 the fomula below, where $\mu$ is again the attenuation coefficient.
@@ -117,15 +117,15 @@ hospitals around the world.
 Another point of interest today is the combination of successive CT slices to
 generate a 3D model of the patient. Because of advancements in computer
 technology and algorithms, we can now post-process this 3D model to
-automatically segment the bones and organs. This can for example help physicians
-plan their actions before and during complex surgery.
+automatically segment the organs and other structures. This can for example help
+physicians plan their actions before and during complex surgery.
 
 \subsection{Future expectations}
 Because CT scanners still require relatively high doses of radiation, this is
 not an ideal solution. MRI scanners offer a safer alternative, but the large
 magnetic fields produced make them impossible to use on patients with ferromagnetic
 implants. Another advantage over MRI is the superior sub-millimeter resolution
-that only CT scanners can handle. These are only some of the reasons why they
-will not be replaced anytime soon. Future research will attempt to make CT scanners
-even faster and allow them to produce clearer (i.e., higher contrast) images
-with lower doses.
+that only CT scanners can offer. These are only some of the reasons why they
+will not be replaced anytime soon. Future research will attempt to make CT
+scanners even faster and allow them to produce clearer (i.e., higher contrast)
+images with lower doses.

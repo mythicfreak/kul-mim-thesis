@@ -1,7 +1,7 @@
 \section{Radiography}
-Radiographs are the simplest form of medical imaging based on X-rays. These rays
-can travel through solid objects, but attenuate based on the materials they meet
-along their path. For example, when passing through a human hand, the
+Radiography is the simplest form of medical imaging based on X-rays. These rays
+can travel through solid objects, but attenuate depending on the materials they
+meet along their path. For example, when passing through a human hand, the
 attenuation is stronger when passing through bones rather than through soft
 tissue. The image can be recorded (in negative) on ordinary photographic paper
 and processed in darkrooms. \autoref{fig:xrayhand} shows am example.
@@ -17,7 +17,7 @@ and processed in darkrooms. \autoref{fig:xrayhand} shows am example.
 
 \subsection{History}
 Radiography builds on the work of Wilhelm Konrad R\"ontgen, a German physicist
-who produced and detected X-rays for the first time on the 8 of November 1895.
+who produced and detected X-rays for the first time on November 8, 1895.
 These X-rays (X for unknown) had the remarkable property of being attenuated at
 different rates when passing through various materials. For example, bone
 strongly attenuates the X-rays while soft tissue does much less so. R\"ontgen
@@ -60,9 +60,6 @@ is the speed of light and $h$ is Planck's constant.
 	E = hf = \frac{hc}{\lambda}.
 \end{equation}
 
-This formula can of course easily be extended to include heterogeneous materials
-and variable attenuation coefficients.
-
 X-rays are generated in an X-ray tube, a vacuum tube consisting of a cathode and
 an anode. Current flowing through the cathode releases electrons,
 which are accelerated toward the anode by an applied voltage. Once the electrons
@@ -76,18 +73,21 @@ attenuation coefficient $\mu$. The beam intensity when passed through a
 homogeneous material of depth $d$ is given by: 
 
 \begin{equation}
-	I_{out} = I_{in} e^{-\mu d}.
+	I_{out} = I_{in} \cdot \exp (-\mu d).
 \end{equation}
+
+This formula can of course easily be extended to include heterogeneous materials
+and variable attenuation coefficients.
 
 To capture X-rays, a detector is needed. Traditionally, a screen-film detector
 was used. The familiar photographic film alone is very inefficient
-at capturing X-rays: only about 2\% of all photons are absorped. Because X-rays
+at capturing X-rays: only about 2\% of all photons are absorbed. Because X-rays
 are ionizing, the applied dose cannot simply be increased to improve the
 image quality. Instead, an intensifier screen is used in front of the film. This
 screen contains heavy chemical elements, whose electrons are excited by the
 incoming photons. When returning to their original state, these electrons emit
-visible light that can better be captured by the film, raising the absorption
-efficiency to about 50\%.
+visible light that can be captured more efficiently by the film, raising the
+absorption rate to about 50\%.
 
 Besides ordinary radiography, special classes such as fluoroscopy and
 mammography exist. Fluoroscopy generates time-lapse recordings instead of still
@@ -107,14 +107,14 @@ the absorbed radiation instead of immediately releasing it in the form of
 photons. This phenomenon is caused by electron traps in the doped material.
 Later, this phosphor can be read out pixel-wise using an optical detector array
 and a laser that gives the electrons enough energy to escape their trap. The
-main obstacle for this paradigm shift was the large pixel size. Pixels of 1 mm make
-it much more difficult for a radiologist to analyze the image in its digital
-form. Only by the time pixels could be as small as 0.1 mm did the medical world
+main obstacle for this paradigm shift was the large pixel size. Large pixels
+translate to lower resolution, which is turn leads to a loss of diagnostic
+value. Only by the time pixels could be as small as 0.1 mm did the medical world
 embrace digital detectors \cite{review}.
 
 Even newer devices use active matrix flat panel detectors. These detectors are
-able to produce near real time images where storage phosphors and older
-technologies required minutes or more of processing time.
+able to produce near real time images. In comparison, storage phosphors and
+older technologies required minutes or more of processing time.
 
 \subsubsection{A note on image quality}\label{sssec:imgquality}
 The quality of an image can be expressed in three dimensions: resolution,
@@ -122,15 +122,15 @@ contrast and noise \cite{suetens}.
 
 Resolution is sometimes simply stated as the pixel density (dots per inch).
 However, this only provides an upper bound because in practise neighbouring
-pixels can be correlated. For example, due to the imperfect nature of the
+pixels are often correlated. For example, due to the imperfect nature of the
 recording equipment, a single point can appear as blurred blob on the resulting
 image. This blob is called the Point Spread Function (PSF), and is a better
 measure for the actual image resolution. If the resolution is isotropic, the
-Line Spread Function (LSF) - measured in distinguishable line pairs per mm
-(lp/mm) - can also be used. Alternatively, the Optical Transfer Function (OTF,
-sometimes also MTF) representing amplitude and phase shifts of a sinusoidal
-target can be used. In fact, this OTF is nothing more than the Fourier transform
-of the PSF or LSF.
+Line Spread Function (LSF) - measured in distinguishable line pairs per
+millimeter (lp/mm) - can also be used. Alternatively, the Optical Transfer
+Function (OTF, sometimes also called MTF) representing amplitude and phase
+shifts of a sinusoidal target can be used. In fact, this OTF is nothing more than the
+Fourier transform of the PSF or LSF.
 
 Second, contrast is the intensity difference between neighbouring regions of the
 image. More formally, contrast at a given frequency is the amplitude component

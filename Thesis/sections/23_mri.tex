@@ -2,7 +2,7 @@
 While the previous imaging modalities were based on X-rays, Magnetic Resonance
 Imaging (MRI) is based on magnetic fields. It is sometimes also referred to as
 Nuclear Magnetic Resonance (NMR) in professional circles. However, the general
-public has a certain aversion to the world ``nuclear'', so MRI is most used.
+public has a certain aversion to the world ``nuclear'', so MRI is more common.
 Instead of measuring the electromagnetic attenuation properties of various
 tissue types as in CT scanners, we measure certain magnetic properties of the
 tissue. These magnetic properties mainly depend on the molecular composition of
@@ -47,15 +47,15 @@ started producing commercial MRI machines.
 
 \subsection{Technical background}
 Unfortunately, the fundamental concepts that make MRI scanners work go beyond
-classic physics, and instead requires special relativity, quantum mechanics and
-quantum electrodynamics. Clearly, this is way beyond the scope of this text. We
+classical physics, and instead requires special relativity, quantum mechanics
+and quantum electrodynamics. Clearly, this is way beyond the scope of this text. We
 will present a simplified version of the core principles based on
 \cite{suetens} instead.
 
 MRI scanners influence and measure the magnetic properties of atom nuclei in the
 patient's tissue. During typical studies H$^+$ ions (i.e., protons) are used
 because of their abundance in the human body, although alternatives exist
-(e.g. ${}^{13}_6$C or ${}^{17}_8$O).
+(e.g., ${}^{13}_6$C or ${}^{17}_8$O).
 
 When the scanner is operational, a large magnetic field $\vec{B_0} = (0,0,B_0)$
 (in the order of a couple Telsa) is induced along the patient's length using a
@@ -68,22 +68,23 @@ $\omega_0 = f(B_0)$. Associated with the external magnetic field and the
 individuel magnetic moments is the potential energy $E$. Quantum mechanics
 states that for protons, this energy can only have two values, the so-called
 spin up ($E_\uparrow$, lowest) and spin down ($E_\downarrow$, highest) state. In
-these states, the $\vec{\mu_i}$ point respectively upwards ($u_z > 0$) and
-downwards ($u_z < 0$), although transverse components are still present. Most
-protons will be in the lowest energy state, but they can be flipped by absorbing
+these states, the $\vec{\mu_i}$ point respectively upwards ($\mu_{iz} > 0$) and
+downwards ($\mu_{iz} < 0$), although transverse components are still present.
+Most protons will be in the lowest energy state, but they can be flipped by absorbing
 a photon with the appropriate amount of energy $\Delta E = E_\downarrow -
 E_\uparrow$. This holds when the photon has a specific Larmor frequency
-$\omega_{RF}$, which happens to be equal to $\omega_0$. In a 1T field, the
-Larmor frequency for hydrogen is 42.6 MHz, a radio-frequency (RF) wave.
+$\omega_{RF}$, which happens to be equal to $\omega_0$. In a 1.0T magnetic
+field, the Larmor frequency for hydrogen is 42.6 MHz, a radio-frequency (RF) wave.
 
 Of course, we are more interested in macroscopic voxels (3D pixels) than in the
-individual nuclei. Fortunately, the net magnetization vector $\vec{M_0}$ of each
-voxel is simply the sum of all individual magnetic moments $\mu_i$. The
-magnitude of this vector roughly represents the proton density in the voxel. In
-dynamic equilibrium, $\vec{M_0}$ points in the same direction as $\vec{B_0}$
-because there are more nuclei in the spin up state and the individual transverse
-components cancel each other out. To summarize: the large magnetic field made
-sure the net magnetization vectors of all voxels are aligned. 
+individual nuclei. Fortunately, the net magnetization vector of each voxel is
+simply the sum of all individual magnetic moments: $\vec{M_0} = \sum_i
+\vec{\mu_i}$. The magnitude of this vector roughly represents the proton density
+in the voxel. In dynamic equilibrium, $\vec{M_0}$ points in the same direction
+as $\vec{B_0}$ because there are more nuclei in the spin up state and the
+individual transverse components cancel each other out. To summarize: the large
+magnetic field make sure the net magnetization vectors of all voxels are
+aligned.
 
 Unfortunately, due to technical reasons we can only measure the transverse
 component of $\vec{M}$. As a solution, we will disturb the dynamic equilibrium
@@ -102,7 +103,7 @@ by a first order model with a time constant $T_2$, called the spin-spin
 relaxation time.
 
 \begin{equation}
-M_{tr}(t) = M_0 \sin(\alpha) e^{-t/T_2}
+M_{tr}(t) = M_0 \sin(\alpha) \exp\left(\frac{-t}{T_2}\right)
 \end{equation}
 
 Different tissue types have different inherent $T_2$ times, which we will
@@ -122,19 +123,21 @@ $T_1$ relaxation time. $T_1$ is also a tissue property, and is always larger
 than $T_2$.
 
 \begin{equation}
-M_l(t) = M_0 \cos(\alpha) e^{-t/T_1} + M_0 (1 - e^{-t/T_1})
+M_l(t) = M_0 \cos(\alpha) \exp\left(\frac{-t}{T_1}\right) + M_0 \left(1 -
+\exp\left(\frac{-t}{T_1}\right)\right)
 \end{equation}
 
 Using a quadrature detector in the xy-plane, we get the following reading
 after one 90 degree pulse:
 \begin{equation}
-s(t) = M_{tr}(t) = M_0 e^{-t/T_2}
+s(t) = M_{tr}(t) = M_0 \exp\left(\frac{-t}{T_2}\right)
 \end{equation}
 
 To also measure $T_1$, we have to repeat the 90 degree pulse after repetition
 time TR:
 \begin{equation}
-s(t) = M_0 (1 - e^{-TR/T_1}) e^{-t/T_2}
+s(t) = M_0 \left(1 - \exp\left(\frac{-TR}{T_1}\right)\right)
+\exp\left(\frac{-t}{T_2}\right)
 \end{equation}
 
 Notice how the 90 degree pulse conveniently eliminates the sine and cosine
@@ -172,10 +175,10 @@ responsible for making the proper choice.
 
 \subsection{Recent advancements}
 A lot of spin-off technologies based on MRI are in use. For example, Magnetic
-Resonance Angiography (MRA) generates pictures of arteries to detect pathologies
+Resonance Angiography (MRA) generates images of arteries to detect pathologies
 such as stenosis (narrowing) or aneurysms (dilations). To make this work the
-patient can be injected with a paramagnetic material. Alternatively, the scanner
-can detect anomalies in the measurements due to movement of the blood, and
+patient can be injected with a paramagnetic contrast material. Alternatively,
+the scanner can detect anomalies in the measurements due to movement of the blood, and
 amplify those.
 
 \hyphenation{me-ta-bo-lites}
@@ -191,8 +194,8 @@ diffusion and perfusion can be measured.
 MRI scanners today are still far less ubiquitous than CT scanners, and only make
 up a few percent of the worldwide radiographic examinations \cite{oecdhealth}.
 However, because of the various advantages over other modalities - mostly the
-fact that they use non-ionizing radiation - usage is expected to rise steadily
-in the future. MRI will never completely replace CT because it cannot properly
+fact that it is not dependent on ionizing radiation - usage is expected to
+rise steadily in the future. MRI will never completely replace CT because it cannot properly
 image hydrogen-poor structures such as bone and air.
 
 On top of that, future research will most likely improve the functional aspect
