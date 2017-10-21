@@ -1,0 +1,10 @@
+.project
+.texlipse
+*.synctex.gz
+/tmp
+*.aux
+*.ilg
+*.ind
+*.log
+*.toc
+*.idx

@@ -1,4 +1,3 @@
-private
-=======
+# kul-mim-thesis
 
-Repository for my private projects.
+Master's thesis for the Master in Management program at KU Leuven.
